@@ -17,8 +17,8 @@ package com.avtestapp.android.androidbase.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.avtestapp.android.androidbase.sample.advanced.breedlist.AdvancedBreedListViewModel
-import com.avtestapp.android.androidbase.sample.basic.catlist.BreedListViewModel
+import com.avtestapp.android.androidbase.av_test.advanced.breedlist.AdvancedBreedListViewModel
+import com.avtestapp.android.androidbase.av_test.basic.catlist.BreedListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

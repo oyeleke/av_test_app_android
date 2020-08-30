@@ -19,7 +19,7 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
-import com.avtestapp.android.androidbase.sample.models.BreedDatabase
+import com.avtestapp.android.androidbase.av_test.models.BreedDatabase
 import com.avtestapp.android.androidbase.utils.PrefsUtils
 import com.google.gson.Gson
 import dagger.Module

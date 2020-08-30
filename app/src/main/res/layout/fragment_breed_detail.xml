@@ -5,7 +5,7 @@
     <data>
         <variable
             name="breed"
-            type="com.avtestapp.android.androidbase.sample.models.Breed" />
+            type="com.avtestapp.android.androidbase.av_test.models.Breed" />
     </data>
 
     <ScrollView

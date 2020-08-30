@@ -16,6 +16,7 @@
 package com.avtestapp.android.androidbase
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -43,6 +44,16 @@ class MainActivity : AppCompatActivity(), LoadingCallback {
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         navController = findNavController(R.id.nav_host_fragment)
         appBarConfiguration = AppBarConfiguration(navController.graph)
+
+        navController.addOnDestinationChangedListener{_, destination, _ ->
+            if(destination.id in arrayOf(
+                    R.id.landingPageFragment
+                )) {
+                toolbar.visibility = View.GONE
+            } else {
+                toolbar.visibility = View.VISIBLE
+            }
+        }
     }
 
     fun setUpToolBar(toolbarTitle: String, isRootPage: Boolean = false) {

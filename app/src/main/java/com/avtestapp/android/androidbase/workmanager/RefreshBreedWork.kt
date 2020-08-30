@@ -19,7 +19,7 @@ import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.avtestapp.android.androidbase.App
-import com.avtestapp.android.androidbase.sample.ExampleRepository
+import com.avtestapp.android.androidbase.av_test.ExampleRepository
 import retrofit2.HttpException
 import javax.inject.Inject
 

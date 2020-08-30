@@ -18,12 +18,12 @@ package com.avtestapp.android.androidbase.repostiory
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import com.avtestapp.android.androidbase.networkutils.Result
-import com.avtestapp.android.androidbase.sample.ExampleRepository
-import com.avtestapp.android.androidbase.sample.NetworkBreedModel
-import com.avtestapp.android.androidbase.sample.apis.ExampleApiService
-import com.avtestapp.android.androidbase.sample.models.BreedDao
-import com.avtestapp.android.androidbase.sample.models.BreedDatabase
-import com.avtestapp.android.androidbase.sample.models.DatabaseBreedModel
+import com.avtestapp.android.androidbase.av_test.ExampleRepository
+import com.avtestapp.android.androidbase.av_test.NetworkBreedModel
+import com.avtestapp.android.androidbase.av_test.apis.ExampleApiService
+import com.avtestapp.android.androidbase.av_test.models.BreedDao
+import com.avtestapp.android.androidbase.av_test.models.BreedDatabase
+import com.avtestapp.android.androidbase.av_test.models.DatabaseBreedModel
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain

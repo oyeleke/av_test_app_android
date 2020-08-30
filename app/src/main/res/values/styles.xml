@@ -4,8 +4,67 @@
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
     </style>
+
+    <style name="AppTheme.TextAppearance.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="colorControlActivated">#DADADA</item>
+    </style>
+
+
+    <style name="AppTheme.TextInputLayoutContainerSmall">
+        <item name="android:layout_width">130dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">@drawable/input_edit_text_selector</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayoutContainer">
+        <item name="android:layout_width">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">@drawable/input_edit_text_selector</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayoutContainerOTP">
+        <item name="android:layout_width">45dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">@drawable/input_edit_text_selector</item>
+    </style>
+
+    <style name="AppTheme.HorizontalButtonAppearance" parent="Widget.MaterialComponents.Button.Icon">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="fontFamily">@font/quicksand_bold</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="background">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
+
+
+    <style name="AppTheme.TextAppearance.TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">7dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/quicksand</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="AppTheme.TextInputEdiText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">7dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
 
 </resources>

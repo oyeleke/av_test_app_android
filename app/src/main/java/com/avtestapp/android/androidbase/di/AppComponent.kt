@@ -16,8 +16,8 @@
 package com.avtestapp.android.androidbase.di
 
 import android.app.Application
-import com.avtestapp.android.androidbase.sample.advanced.breedlist.AdvancedBreedListFragment
-import com.avtestapp.android.androidbase.sample.basic.catlist.BreedListFragment
+import com.avtestapp.android.androidbase.av_test.advanced.breedlist.AdvancedBreedListFragment
+import com.avtestapp.android.androidbase.av_test.basic.catlist.BreedListFragment
 import com.avtestapp.android.androidbase.workmanager.RefreshDataWork
 import dagger.BindsInstance
 import dagger.Component

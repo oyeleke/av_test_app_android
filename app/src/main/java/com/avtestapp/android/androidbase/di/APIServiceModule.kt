@@ -20,9 +20,9 @@ import androidx.work.Constraints
 import androidx.work.NetworkType
 import com.avtestapp.android.androidbase.BuildConfig
 import com.avtestapp.android.androidbase.auth.*
-import com.avtestapp.android.androidbase.sample.apis.AccessTokenProviderImpl
-import com.avtestapp.android.androidbase.sample.apis.ExampleAPIAuthService
-import com.avtestapp.android.androidbase.sample.apis.ExampleApiService
+import com.avtestapp.android.androidbase.av_test.apis.AccessTokenProviderImpl
+import com.avtestapp.android.androidbase.av_test.apis.ExampleAPIAuthService
+import com.avtestapp.android.androidbase.av_test.apis.ExampleApiService
 import com.google.gson.Gson
 import dagger.Lazy
 import dagger.Module

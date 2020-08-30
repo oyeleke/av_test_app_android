@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.avtestapp.android.androidbase.sample.basic.catlist.BreedListViewModel" />
+            type="com.avtestapp.android.androidbase.av_test.basic.catlist.BreedListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.avtestapp.android.androidbase.sample.advanced.breedlist.AdvancedBreedListViewModel" />
+            type="com.avtestapp.android.androidbase.av_test.advanced.breedlist.AdvancedBreedListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
