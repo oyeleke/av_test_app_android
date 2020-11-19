@@ -1,23 +1,27 @@
-/**
- * Copyright (c) 2019 Cotta & Cush Limited.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 package com.avtestapp.android.androidbase
 
 class PrefKeys {
     companion object {
         const val ACCESS_TOKEN = "ACCESS_TOKEN"
+        const val USER_PROFILE = "user_profile"
+        const val GENERIC_AUTH_RESPONSE = "auth_response"
+        const val USER_RESPONSE = "user_response"
+        const val PROFESSIONS_LIST = "profession_list"
+        const val HAS_CLICKED_ON_PRACTICE_QUESTIONS = "has_clicked_on_practice question_before"
+        const val HAS_CLICKED_ON_STUDY_QUESTIONS = "has_clicked_on_study question_before"
+
+    }
+}
+
+interface UI_CONSTANTS{
+    companion object{
+        const val FLIGHT_ATTENDANT = "Flight attendant"
+        const val PILOT = "Pilot"
+        const val AIRCRAFT_MAINTENANCE = "Aircraft maintenance"
+        const val AIR_DISPATCHER = "Air dispatcher"
+        const val AIR_TRAFFIC_CONTROLLER = "Air traffic controller"
+        const val ENGINEER = "Engineer"
     }
 }
 

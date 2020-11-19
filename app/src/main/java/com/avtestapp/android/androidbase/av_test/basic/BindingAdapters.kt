@@ -19,31 +19,12 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.avtestapp.android.androidbase.av_test.advanced.breedlist.AdvancedBreedListAdapter
-import com.avtestapp.android.androidbase.av_test.basic.catlist.BreedListAdapter
 import com.avtestapp.android.androidbase.custom_views.ClickToSelectEditText
 import com.avtestapp.android.androidbase.custom_views.OnboardingFormDropDown
 import com.avtestapp.android.androidbase.utils.FormField
 import com.google.android.material.textfield.TextInputEditText
 import timber.log.Timber
 
-@BindingAdapter("catBreedsList")
-fun bindAccountsRecyclerView(recyclerView: RecyclerView, data: List<Breed>?) {
-    data?.let {
-        Timber.d("Update recycler view")
-        val adapter = recyclerView.adapter as BreedListAdapter
-        adapter.submitList(data)
-    }
-}
-
-@BindingAdapter("advancedCatBreedsList")
-fun bindAdvancedBreedsRecyclerView(recyclerView: RecyclerView, data: List<Breed>?) {
-    data?.let {
-        Timber.d("Update recycler view")
-        val adapter = recyclerView.adapter as AdvancedBreedListAdapter
-        adapter.submitList(data)
-    }
-}
 
 
 @BindingAdapter("rxtext")

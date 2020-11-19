@@ -16,25 +16,45 @@
 package com.avtestapp.android.androidbase
 
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.afollestad.materialdialogs.MaterialDialog
+import com.avtestapp.android.androidbase.av_test.core.questions.QuestionViewModel
+import com.avtestapp.android.androidbase.base.BaseActivity
+import com.avtestapp.android.androidbase.base.BaseBottomSheetDialogFragment
+import com.avtestapp.android.androidbase.base.BaseFragment
 import com.avtestapp.android.androidbase.base.LoadingCallback
 import com.avtestapp.android.androidbase.extensions.*
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.loading_indicator.*
+import timber.log.Timber
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), LoadingCallback {
+
+class MainActivity : BaseActivity(), LoadingCallback, NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var currentFragment: BaseFragment
+    private lateinit var currentBottomSheetFragment: BaseBottomSheetDialogFragment
+    private lateinit var viewModel: QuestionViewModel
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
+        (this.applicationContext as App).component.inject(this)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(QuestionViewModel::class.java)
         setContentView(R.layout.activity_main)
         setUpNavigation()
     }
@@ -44,17 +64,51 @@ class MainActivity : AppCompatActivity(), LoadingCallback {
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         navController = findNavController(R.id.nav_host_fragment)
         appBarConfiguration = AppBarConfiguration(navController.graph)
+        NavigationUI.setupWithNavController(
+            bottom_navigation, navController
+        )
+
 
         navController.addOnDestinationChangedListener{_, destination, _ ->
             if(destination.id in arrayOf(
-                    R.id.landingPageFragment
+                    R.id.splashScreenFragment,
+                    R.id.landingPageFragment,
+                    R.id.loginFragment,
+                    R.id.signUpFragment,
+                    R.id.forgotPasswordFragment,
+                    R.id.verificationFragment,
+                    R.id.resetPasswordFragment,
+                    R.id.onboardingStartFragment,
+                    R.id.uploadImageFragment,
+                    R.id.dashboardFragment,
+                    R.id.onboarding3Fragment,
+                    R.id.studyQuestionFragment,
+                    R.id.practiceQuestionsFragment
                 )) {
-                toolbar.visibility = View.GONE
+                toolbar.hide()
             } else {
-                toolbar.visibility = View.VISIBLE
+                toolbar.show()
+            }
+
+            if(destination.id in arrayOf(
+                    R.id.splashScreenFragment,
+                    R.id.landingPageFragment,
+                    R.id.loginFragment,
+                    R.id.signUpFragment,
+                    R.id.forgotPasswordFragment,
+                    R.id.verificationFragment,
+                    R.id.resetPasswordFragment,
+                    R.id.onboardingStartFragment,
+                    R.id.uploadImageFragment,
+                    R.id.onboarding3Fragment
+                )) {
+                bottom_navigation.hide()
+            } else {
+                bottom_navigation.show()
             }
         }
     }
+
 
     fun setUpToolBar(toolbarTitle: String, isRootPage: Boolean = false) {
         supportActionBar!!.run {
@@ -100,4 +154,36 @@ class MainActivity : AppCompatActivity(), LoadingCallback {
             positiveButton(R.string.ok)
         }
     }
+
+    fun setCurrentFragment(baseFragment: BaseFragment) {
+        currentFragment = baseFragment
+    }
+
+    fun setCurrentBottomSheetFragment(baseBottomSheetDialogFragment: BaseBottomSheetDialogFragment){
+        currentBottomSheetFragment = baseBottomSheetDialogFragment
+    }
+
+    override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
+        when(menuItem.itemId){
+            R.id.dashboardFragment -> {
+                navController.navigate(R.id.dashboardFragment)
+            }
+            R.id.questionTypeFragment -> {
+                Timber.e("I am clicked")
+                navController.navigate(R.id.questionTypeFragment)
+            }
+
+            R.id.settingsFragment -> {
+                showToast("Testing")
+                navController.navigate(R.id.settingsFragment)
+            }
+        }
+        return true
+    }
+
+    companion object{
+
+
+    }
+
 }

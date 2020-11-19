@@ -1,30 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
-    tools:context=".av_test.core.questions.QuestionsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/studyQuestionView"
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/study_question_group_icon" />
+        android:layout_height="match_parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        tools:context=".av_test.core.questions.QuestionTypeFragment">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="100dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/practiceQuestionView"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/practice_question_group_icon"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/firstLine"
+            app:layout_constraintGuide_percent="0.4"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/secondLine"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/studyQuestionView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/firstLine"
+            app:srcCompat="@drawable/study_question_group_icon" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/practiceQuestionView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/secondLine"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/practice_question_group_icon" />
 
 
-</FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,10 +1,11 @@
-package com.avtestapp.android.androidbase.av_test.core
+package com.avtestapp.android.androidbase.av_test.core.questions
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.avtestapp.android.androidbase.MainActivity
 import com.avtestapp.android.androidbase.databinding.FragmentMarkedQuestionBinding
 
 class MarkedQuestionFragment : Fragment() {
@@ -27,6 +28,7 @@ class MarkedQuestionFragment : Fragment() {
     }
 
     private fun setUpView(){
+        (activity as MainActivity).setUpToolBar("Marked questions")
         setUpEmptyView()
     }
 

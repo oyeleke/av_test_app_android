@@ -1,14 +1,343 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".av_test.dashboard.PracticeQuestionsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".av_test.core.questions.PracticeQuestionsFragment">
 
-</FrameLayout>
+        <androidx.appcompat.widget.Toolbar
+            app:title=""
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+            android:elevation="4dp"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/backButton"
+                app:srcCompat="@drawable/ic_arrow_back_white_24dp"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_medium"
+                android:layout_marginStart="40dp"
+                android:text="Air Law"
+                android:id="@+id/studyQuestionsToolbar"
+                android:textSize="23sp"
+                android:textColor="@android:color/white"/>
+
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.07"
+            android:id="@+id/topGuidline"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05"
+            android:id="@+id/startGuideline"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95"
+            android:id="@+id/endGuidline"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/questionNoLayout"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/endGuidline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/topGuidline">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="34sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:id="@+id/questionNoTextView"
+                    android:letterSpacing="0.1"
+                    android:text="02"/>
+
+                <View
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="36dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_height="5dp"
+                    android:background="@color/colorPrimary"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textSize="18sp"
+                android:layout_marginStart="7dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/quicksand_medium"
+                android:letterSpacing="0.1"
+                android:text="OF"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/totalQuestionsNo"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textSize="18sp"
+                android:layout_marginStart="7dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/quicksand_medium"
+                android:letterSpacing="0.1"
+                android:text="50"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/questionString"
+            android:layout_marginTop="19dp"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/questionNoLayout"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintEnd_toStartOf="@id/endGuidline"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="Here's an easy but dumb riddle. If you sit here, and live here then where do you stand? "
+            android:letterSpacing="0.1"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:id="@+id/questionActionsLayout"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/endGuidline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/questionString"
+            android:layout_marginTop="35dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="32dp"
+                android:layout_height="29dp"
+                android:id="@+id/bookmarkIcon"
+                app:srcCompat="@drawable/bookmark_selector"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_marginStart="30dp"
+                android:layout_width="32dp"
+                android:layout_height="29dp"
+                android:id="@+id/pictureIcon"
+                app:srcCompat="@drawable/picture_icon"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_marginStart="30dp"
+                android:layout_width="32dp"
+                android:layout_height="29dp"
+                android:id="@+id/chatIcon"
+                app:srcCompat="@drawable/chat_icon"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_marginTop="35dp"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/answerOption1"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_rounded_layout_corners"
+            app:layout_constraintEnd_toStartOf="@id/endGuidline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/questionActionsLayout">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/answerOption1Text"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="I'm nowhere"
+                android:backgroundTint="@color/coolGrey"
+                android:letterSpacing="0.1"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_marginTop="35dp"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/answerOption2"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_rounded_layout_corners"
+            app:layout_constraintEnd_toStartOf="@id/endGuidline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/answerOption1">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/answerOption2Text"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="Nowhere "
+                android:backgroundTint="@color/coolGrey"
+                android:letterSpacing="0.1"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_marginTop="35dp"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/answerOption3"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_rounded_layout_corners"
+            app:layout_constraintEnd_toStartOf="@id/endGuidline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/answerOption2">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/answerOption3Text"
+                android:textSize="18sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/quicksand_medium"
+                android:text="Here"
+                android:backgroundTint="@color/coolGrey"
+                android:letterSpacing="0.1"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/totalQuestionGroup"
+            app:constraint_referenced_ids="answerOption1,answerOption2,answerOption3,questionActionsLayout, questionNoLayout, bottomQuestionNav, questionString"/>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:id="@+id/bottomQuestionNav"
+            android:padding="5dp"
+            android:layout_marginBottom="50dp"
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:id="@+id/prev"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/chevron_left"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="PREV"
+                        android:backgroundTint="@color/coolGrey"
+                        android:letterSpacing="0.1"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:id="@+id/next"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="NEXT"
+                        android:backgroundTint="@color/coolGrey"
+                        android:letterSpacing="0.1"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/chevron_right"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <include
+            android:visibility="gone"
+            android:id="@+id/emptylayout"
+            layout="@layout/empty_views_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,14 +1,323 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".av_test.dashboard.DashboardFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context=".av_test.core.DashboardFragment">
 
-</FrameLayout>
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="98dp"
+            android:background="@color/colorPrimary"
+            android:elevation="20dp"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:scrimAnimationDuration="300">
+
+
+            <!-- Dummy toolbar lol -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_collapseMode="pin">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@android:color/white">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"
+                        app:srcCompat="@drawable/search_icon" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/searchTextInputLayout"
+                        style="@style/AppTheme.TextInputLayoutContainerSearch"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:paddingBottom="5dp"
+                        android:layout_weight="1">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/searchTextInputEditText"
+                            style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                            android:gravity="center_vertical"
+                            android:hint="Search hint"
+                            android:inputType="text" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/moreMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="15dp"
+                        app:srcCompat="@drawable/more_icon" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topGuidline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottomGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/secondRowTopGuidline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.51" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuidline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/midVerticalGuideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />  
+        
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/midHorizontalGuideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuidline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/resumePracticeQuestion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:cardElevation="@dimen/cardview_elevation"
+            app:layout_constraintTop_toBottomOf="@id/topGuidline"
+            app:layout_constraintEnd_toStartOf="@id/midVerticalGuideLine"
+            app:layout_constraintStart_toStartOf="@id/startGuidline"
+            app:layout_constraintBottom_toTopOf="@id/midHorizontalGuideLine"
+            android:layout_marginBottom="15dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/practice_question_dashboard_icon"
+                    android:layout_marginTop="55dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/resumePracticeQuestionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/quicksand"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/resume" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/quicksand_bold"
+                    android:layout_marginTop="2dp"
+                    android:paddingBottom="20dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/practice_session" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/resumeStudyQuestion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/cardview_elevation"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintStart_toEndOf="@id/midVerticalGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/topGuidline"
+            app:layout_constraintEnd_toEndOf="@id/endGuidline"
+            app:layout_constraintBottom_toTopOf="@id/midHorizontalGuideLine"
+            android:layout_marginBottom="15dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/study_question_icon"
+                    android:layout_marginTop="55dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/resumeStudyQuestionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/quicksand"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/resume" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/quicksand_bold"
+                    android:layout_marginTop="2dp"
+                    android:paddingBottom="20dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/study_session" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/markedQuestions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/cardview_elevation"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="@id/midVerticalGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/secondRowTopGuidline"
+            app:layout_constraintBottom_toTopOf="@id/bottomGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuidline">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/marked_question_icon"
+                    android:layout_marginTop="55dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/quicksand"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/marked" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/quicksand_bold"
+                    android:layout_marginTop="2dp"
+                    android:paddingBottom="20dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/question" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/knowledgeScore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:cardElevation="@dimen/cardview_elevation"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toTopOf="@id/bottomGuideline"
+            app:layout_constraintStart_toEndOf="@id/midVerticalGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/secondRowTopGuidline"
+            app:layout_constraintEnd_toEndOf="@id/endGuidline">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/knowledge_score_icon"
+                    android:layout_marginTop="55dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/quicksand"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/knowledge" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/quicksand_bold"
+                    android:layout_marginTop="2dp"
+                    android:paddingBottom="20dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/score" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

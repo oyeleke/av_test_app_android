@@ -1,158 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="10dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+        <variable
+            name="viewModel"
+            type="com.avtestapp.android.androidbase.av_test.auth.verification.VerificationViewModel" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/topGuidline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.2" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/startGuidline"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.15"
-            app:layout_constraintStart_toStartOf="parent" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/topGuidline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/endGuideline"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.85" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startGuidline"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintGuide_percent="0.9" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:id="@+id/horizontalInputsLinearLayout"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/startGuidline"
+                app:layout_constraintEnd_toStartOf="@id/endGuideline"
+                app:layout_constraintTop_toTopOf="@id/topGuidline"
+                android:layout_marginTop="20dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/otp1TextInputLayout"
+                android:layout_weight="1"
+                style="@style/AppTheme.TextInputLayoutContainerOTP"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/otp1TextInputEditText"
+                    rxtext="@{viewModel.code1}"
+                    android:maxLength="1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/otp2TextInputLayout"
+                style="@style/AppTheme.TextInputLayoutContainerOTP"
+                android:layout_marginStart="15dp"
+                android:layout_weight="1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/otp2TextInputEditText"
+                    rxtext="@{viewModel.code2}"
+                    android:maxLength="1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/otp3TextInputLayout"
+                android:layout_weight="1"
+                android:layout_marginStart="15dp"
+                android:gravity="center"
+                style="@style/AppTheme.TextInputLayoutContainerOTP">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/otp3TextInputEditText"
+                    rxtext="@{viewModel.code3}"
+                    android:maxLength="1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/otp4TextInputLayout"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginStart="15dp"
+                style="@style/AppTheme.TextInputLayoutContainerOTP">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/otp4TextInputEditText"
+                    rxtext="@{viewModel.code4}"
+                    android:maxLength="1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/otp1TextInputLayout"
-            style="@style/AppTheme.TextInputLayoutContainerOTP"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="@id/startGuidline"
-            app:layout_constraintTop_toBottomOf="@id/topGuidline">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signInButton"
+                style="@style/AppTheme.HorizontalButtonAppearance"
+                android:layout_marginTop="20dp"
+                android:layout_height="60dp"
+                android:letterSpacing="0.01"
+                android:text="VERIFY NOW"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                app:layout_constraintStart_toStartOf="@id/startGuidline"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalInputsLinearLayout" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/otp1TextInputEditText"
-                style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
-                android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:id="@+id/didntReceiveOtpTextLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                app:layout_constraintStart_toStartOf="@id/startGuidline"
+                app:layout_constraintTop_toBottomOf="@+id/signInButton">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/otp2TextInputLayout"
-            style="@style/AppTheme.TextInputLayoutContainerOTP"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="30dp"
-            app:layout_constraintStart_toEndOf="@id/otp1TextInputLayout"
-            app:layout_constraintTop_toBottomOf="@id/topGuidline">
+                <TextView
+                    android:id="@+id/didNtReceiveOtpText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:letterSpacing="0.01"
+                    android:text="Didn't receive an OTP?"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/otp2TextInputEditText"
-                style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
-                android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/resendOtpText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:letterSpacing="0.01"
+                    android:text="Resend OTP"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/otp3TextInputLayout"
-            style="@style/AppTheme.TextInputLayoutContainerOTP"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toStartOf="@id/otp4TextInputLayout"
-            app:layout_constraintTop_toBottomOf="@id/topGuidline">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/otp3TextInputEditText"
-                style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
-                android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/otp4TextInputLayout"
-            style="@style/AppTheme.TextInputLayoutContainerOTP"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="@id/endGuideline"
-            app:layout_constraintTop_toBottomOf="@id/topGuidline">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/otp4TextInputEditText"
-                style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
-                android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/signInButton"
-            style="@style/AppTheme.HorizontalButtonAppearance"
-            android:layout_marginTop="20dp"
-            android:layout_height="60dp"
-            android:letterSpacing="0.01"
-            android:text="VERIFY NOW"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@id/endGuideline"
-            app:layout_constraintStart_toStartOf="@id/startGuidline"
-            app:layout_constraintTop_toBottomOf="@+id/otp1TextInputLayout" />
-
-        <LinearLayout
-            android:id="@+id/didntReceiveOtpTextLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            app:layout_constraintEnd_toEndOf="@id/endGuideline"
-            app:layout_constraintStart_toStartOf="@id/startGuidline"
-            app:layout_constraintTop_toBottomOf="@+id/signInButton">
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/changeEmailAddressText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:fontFamily="@font/quicksand_bold"
                 android:letterSpacing="0.01"
-                android:text="Didn't receive an OTP?"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/resendOtpText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                android:fontFamily="@font/quicksand_bold"
-                android:letterSpacing="0.01"
-                android:text="Resend OTP"
+                android:layout_marginTop="20dp"
+                android:text="Change Email Address"
                 android:textColor="@color/colorPrimary"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/didntReceiveOtpTextLayout"
+                app:layout_constraintStart_toStartOf="@id/startGuidline"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline" />
 
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/changeEmailAddressText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:fontFamily="@font/quicksand_bold"
-            android:letterSpacing="0.01"
-            android:layout_marginTop="20dp"
-            android:text="Change Email Address"
-            android:textColor="@color/colorPrimary"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/didntReceiveOtpTextLayout"
-            app:layout_constraintStart_toStartOf="@id/startGuidline"
-            app:layout_constraintEnd_toEndOf="@id/endGuideline"
-            />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

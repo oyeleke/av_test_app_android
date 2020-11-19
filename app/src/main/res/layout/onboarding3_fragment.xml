@@ -1,14 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".av_test.onboarding.Onboarding3Fragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <data>
+        <variable
+            name="viewModel"
+            type="com.avtestapp.android.androidbase.av_test.onboarding.Onboarding3ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context=".av_test.onboarding.Onboarding3Fragment">
 
-</FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/lineDark"
+            android:layout_width="151dp"
+            android:layout_height="6dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/line_dark" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="151dp"
+            android:layout_height="6dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/line_dark" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.07"
+            android:id="@+id/startGuideLine" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.93"
+            android:id="@+id/endGuideLine" />
+
+
+        <com.avtestapp.android.androidbase.custom_views.OnboardingFormDropDown
+            android:layout_width="0dp"
+            android:id="@+id/professionDropDown"
+            android:layout_height="58dp"
+            android:layout_marginTop="66dp"
+            android:visibility="gone"
+            rxtext="@{viewModel.profession}"
+            android:hint="What is your profession"
+            app:layout_constraintTop_toBottomOf="@id/lineDark"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintEnd_toEndOf="@id/endGuideLine" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:id="@+id/overachingLayoutProfession"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/professionDropDown"
+            android:background="@drawable/custom_spinner_background"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_marginEnd="20dp"
+                android:id="@+id/spinnerProfession"
+                style="@style/SpinnerTheme"
+                android:layout_width="match_parent"
+                android:layout_height="58dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/overachingLayoutProfession"
+            android:id="@+id/licenseNumberLabel"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="License Number"
+            android:layout_marginTop="42dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/licenseNumberInputLayout"
+            style="@style/AppTheme.TextInputLayoutContainer"
+            android:layout_marginTop="14dp"
+            android:layout_height="58dp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/licenseNumberLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/licenseNumberInputEditText"
+                rxtext="@{viewModel.licsenseNo}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/quicksand_bold"
+                style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/licenseNumberInputLayout"
+            android:id="@+id/nationalityLabel"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="Nationality"
+            android:layout_marginTop="56dp" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:id="@+id/overachingLayoutNationality"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/nationalityLabel"
+            android:background="@drawable/custom_spinner_background"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_marginEnd="20dp"
+                android:id="@+id/spinnerNationality"
+                style="@style/SpinnerTheme"
+                android:layout_width="match_parent"
+                android:layout_height="58dp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.avtestapp.android.androidbase.custom_views.OnboardingFormDropDown
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:id="@+id/nationalityDropDown"
+            android:layout_height="58dp"
+            rxtext="@{viewModel.nationality}"
+            android:layout_marginTop="14dp"
+            app:layout_constraintTop_toBottomOf="@id/nationalityLabel"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintEnd_toEndOf="@id/endGuideLine" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/doneButton"
+            style="@style/AppTheme.HorizontalButtonAppearance"
+            android:layout_marginTop="56dp"
+            android:textSize="18sp"
+            android:layout_width="285dp"
+            android:text="DONE"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:letterSpacing="-0.01"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/overachingLayoutNationality" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

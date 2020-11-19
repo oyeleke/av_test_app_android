@@ -1,4 +1,6 @@
 package com.avtestapp.android.androidbase.utils
 
-interface Listable {
+interface Listable<T> {
+    val obj:T
+    val label: String
 }

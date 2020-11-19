@@ -93,7 +93,16 @@ class PrefsUtils @Inject constructor(private val sharedPref: SharedPreferences, 
         putString(key, json)
     }
 
+    fun <T> putList(key: String, list: List<T>) {
+        val json = gson.toJson(list)
+        putString(key, json)
+    }
+
     fun <T> getList(key: String, type: Type): ArrayList<T> {
+        return gson.fromJson<ArrayList<T>>(getString(key, ""), type)
+    }
+
+    fun <T> getListasList(key: String, type: Type): List<T> {
         return gson.fromJson<ArrayList<T>>(getString(key, ""), type)
     }
 

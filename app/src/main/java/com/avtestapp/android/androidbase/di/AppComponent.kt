@@ -16,20 +16,49 @@
 package com.avtestapp.android.androidbase.di
 
 import android.app.Application
-import com.avtestapp.android.androidbase.av_test.advanced.breedlist.AdvancedBreedListFragment
-import com.avtestapp.android.androidbase.av_test.basic.catlist.BreedListFragment
-import com.avtestapp.android.androidbase.workmanager.RefreshDataWork
+import com.avtestapp.android.androidbase.MainActivity
+import com.avtestapp.android.androidbase.av_test.auth.forgot_password.ForgotPasswordFragment
+import com.avtestapp.android.androidbase.av_test.auth.login.LoginFragment
+import com.avtestapp.android.androidbase.av_test.auth.reset_password.ResetPasswordFragment
+import com.avtestapp.android.androidbase.av_test.auth.sign_up.SignUpFragment
+import com.avtestapp.android.androidbase.av_test.auth.verification.VerificationFragment
+import com.avtestapp.android.androidbase.av_test.core.DashboardFragment
+import com.avtestapp.android.androidbase.av_test.core.edit_profile.EditProfileFragment
+import com.avtestapp.android.androidbase.av_test.core.questions.PracticeQuestionsFragment
+import com.avtestapp.android.androidbase.av_test.core.questions.QuestionTypeFragment
+import com.avtestapp.android.androidbase.av_test.core.questions.StudyQuestionFragment
+import com.avtestapp.android.androidbase.av_test.core.settings.SettingsFragment
+import com.avtestapp.android.androidbase.av_test.modals.QuestionTypeBottomSheetModal
+import com.avtestapp.android.androidbase.av_test.onboarding.Onboarding3Fragment
+import com.avtestapp.android.androidbase.av_test.onboarding.OnboardingStartFragment
+import com.avtestapp.android.androidbase.av_test.onboarding.upload_image.UploadImageFragment
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.BindsInstance
 import dagger.Component
+import java.sql.ResultSetMetaData
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [APIServiceModule::class, ViewModelModule::class])
+@Component(modules = [APIServiceModule::class, ViewModelModule::class, LocalDataModule::class])
 interface AppComponent {
 
-    fun inject(target: BreedListFragment)
-    fun inject(target: RefreshDataWork)
-    fun inject(target: AdvancedBreedListFragment)
+    fun inject(target: MainActivity)
+    fun inject(target: LoginFragment)
+    fun inject(target: SignUpFragment)
+    fun inject(target: VerificationFragment)
+    fun inject(target: ResetPasswordFragment)
+    fun inject(target: ForgotPasswordFragment)
+    fun inject(target: UploadImageFragment)
+    fun inject(target: OnboardingStartFragment)
+    fun inject(target: Onboarding3Fragment)
+    fun inject(target: QuestionTypeFragment)
+    fun inject(target: StudyQuestionFragment)
+    fun inject(target: PracticeQuestionsFragment)
+    fun inject(target: QuestionTypeBottomSheetModal)
+    fun inject(target: DashboardFragment)
+    fun inject(target: SettingsFragment)
+    fun inject(target: EditProfileFragment)
+
 
     @Component.Builder
     interface Builder {

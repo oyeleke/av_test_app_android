@@ -4,7 +4,7 @@ import com.avtestapp.android.androidbase.av_test.models.response.ProfileResponse
 import com.avtestapp.android.androidbase.av_test.models.response.TokenResponse
 import com.google.gson.annotations.SerializedName
 
-data class LoginResponse(
+data class LoginSignUpResponse(
     @SerializedName("tokenData")val tokenData: TokenResponse,
     @SerializedName("profile")val profile: ProfileResponse
 )

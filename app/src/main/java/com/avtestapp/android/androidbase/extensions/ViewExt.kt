@@ -15,11 +15,21 @@
  */
 package com.avtestapp.android.androidbase.extensions
 
+import android.graphics.Point
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.view.ViewParent
+import android.widget.ScrollView
 import androidx.core.view.children
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
+import com.avtestapp.android.androidbase.custom_views.OnboardingFormDropDown
+import com.avtestapp.android.androidbase.utils.FormField
+import com.google.android.material.internal.ViewUtils
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 fun View.show() {
     visibility = VISIBLE
@@ -34,4 +44,49 @@ fun ViewGroup.showViewWithChildren() {
     for (view in children) {
         view.show()
     }
+
+}
+
+fun scrollToView(
+    scrollViewParent: ScrollView,
+    view: View
+) {
+    // Get deepChild Offset
+    val childOffset = Point()
+    getDeepChildOffset(scrollViewParent, view.parent, view, childOffset)
+    // Scroll to child.
+    scrollViewParent.smoothScrollTo(0, childOffset.y)
+}
+
+private fun getDeepChildOffset(
+    mainParent: ViewGroup,
+    parent: ViewParent,
+    child: View,
+    accumulatedOffset: Point
+) {
+    val parentGroup: ViewGroup = parent as ViewGroup
+    accumulatedOffset.x += child.left
+    accumulatedOffset.y += child.top
+    if (parentGroup.equals(mainParent)) {
+        return
+    }
+    getDeepChildOffset(mainParent, parentGroup.getParent(), parentGroup, accumulatedOffset)
+}
+
+fun TextInputEditText.setFeedbackSource(context: LifecycleOwner, formField: FormField<*>, scrollableParent: ScrollView? = null) {
+    formField.error.observe(context, Observer {
+        this.error = it
+    })
+    formField.requestFocus.observe(context, Observer {
+        scrollableParent?.let { sp -> scrollToView(sp, this) }
+    })
+}
+
+fun OnboardingFormDropDown.setFeedbackSource(context: LifecycleOwner, formField: FormField<*>, scrollableParent: ScrollView? = null) {
+    formField.error.observe(context, Observer {
+        this.error = it
+    })
+    formField.requestFocus.observe(context, Observer {
+        scrollableParent?.let { sp -> scrollToView(sp, this) }
+    })
 }

@@ -10,11 +10,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
+
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:foreground="@drawable/landing_page_opacity_foreground"
-            android:src="@drawable/bg_image_landing_page"
+            android:foreground="#CC017EFC"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/bg_image_landing_page"
             />
 
         <androidx.constraintlayout.widget.ConstraintLayout

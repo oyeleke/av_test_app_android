@@ -17,9 +17,7 @@ package com.avtestapp.android.androidbase.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.avtestapp.android.androidbase.av_test.ExampleRepository
 import com.avtestapp.android.androidbase.av_test.advanced.breedlist.BreedListViewModel
-import com.avtestapp.android.androidbase.av_test.models.Breed
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNull
 import kotlinx.coroutines.*

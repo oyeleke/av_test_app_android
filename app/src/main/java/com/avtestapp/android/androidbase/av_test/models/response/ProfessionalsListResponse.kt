@@ -1,4 +1,7 @@
 package com.avtestapp.android.androidbase.av_test.models.response
 
-class ProfessionalsListResponse {
-}
+import com.google.gson.annotations.SerializedName
+
+data class ProfessionalsListResponse(
+    @SerializedName("data")val data: List<ProfessionItemsResponse>? = null
+)

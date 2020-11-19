@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/dashboardFragment"
+        android:icon="@drawable/bottom_nav_dashboard_icon"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/questionTypeFragment"
+        android:icon="@drawable/bottom_nav_question_icon"
+        android:title="Question" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/bottom_nav_settings_icon"
+        android:title="Settings" />
+
 </menu>

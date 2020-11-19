@@ -1,13 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".av_test.core.edit_profile.EditProfileFragment">
 
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="0dp"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/userImageLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/user_image_overlay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/userProfilePicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/profile_picture_demo" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/basicInformationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/quicksand_bold"
+                android:letterSpacing="0.01"
+                android:text="Basic Information"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/userImageLayout" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/basicInformationText"
+                android:id="@+id/userNameLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Name"
+                android:layout_marginTop="22dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameInputLayout"
+                style="@style/AppTheme.TextInputLayoutContainerFullWidth"
+                android:layout_marginTop="10dp"
+                android:layout_height="58dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/userNameLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameInputEditText"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/quicksand_bold"
+                    style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/nameInputLayout"
+                android:id="@+id/emailLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Email"
+                android:layout_marginTop="22dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailInputLayout"
+                style="@style/AppTheme.TextInputLayoutContainerFullWidth"
+                android:layout_marginTop="10dp"
+                android:layout_height="58dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/emailLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailInputEditText"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/quicksand_bold"
+                    style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/emailInputLayout"
+                android:id="@+id/licenseNumberLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="License Number"
+                android:layout_marginTop="22dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/licenseNumberInputLayout"
+                style="@style/AppTheme.TextInputLayoutContainerFullWidth"
+                android:layout_marginTop="10dp"
+                android:layout_height="58dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/licenseNumberLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/licenseNumberInputEditText"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/quicksand_bold"
+                    style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/licenseNumberInputLayout"
+                android:id="@+id/newPasswordLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="New Password"
+                android:layout_marginTop="22dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/newPasswordInputTextLayout"
+                style="@style/AppTheme.TextInputLayoutContainerFullWidth"
+                android:layout_marginTop="10dp"
+                android:layout_height="58dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/newPasswordLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/newPasswordInputEditText"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/quicksand_bold"
+                    style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/newPasswordInputTextLayout"
+                android:id="@+id/retypeNewPasswordLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Retype New Password"
+                android:layout_marginTop="22dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/retypeNewPasswordInputTextLayout"
+                style="@style/AppTheme.TextInputLayoutContainerFullWidth"
+                android:layout_marginTop="10dp"
+                android:layout_height="58dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/retypeNewPasswordLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/retypeNewPasswordInputEditText"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/quicksand_bold"
+                    style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/retypeNewPasswordInputTextLayout"
+                >
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/signInButton"
+                    style="@style/AppTheme.HorizontalButtonAppearance"
+                    android:letterSpacing="-0.01"
+                    android:text="SAVE"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_width="100dp"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                    app:layout_constraintStart_toStartOf="@id/startGuidline"
+                    app:layout_constraintTop_toBottomOf="@+id/rememberMeLayout" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/licenseNumberInputLayout"
+                    android:id="@+id/logout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="end|center_vertical"
+                    android:fontFamily="@font/quicksand"
+                    android:text="Logout"
+                     />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

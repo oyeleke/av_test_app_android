@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#022b61</color>
     <color name="colorAccent">@color/colorPrimary</color>
     <color name="line_separator_color">#a7d4d3d3</color>
+    <color name="bottomNavInactiveStateColor">#80BFFE</color>
+    <color name="bottomNavInactiveStateColorOpacityReduced">#6680BFFE</color>
+    <color name="coolGrey">#F7FAFE</color>
+    <color name="dividerColor">#EFEFEF</color>
 </resources>

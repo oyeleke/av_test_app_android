@@ -1,14 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".av_test.onboarding.upload_image.UploadImageFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <data>
+        <variable
+            name="viewModel"
+            type="com.avtestapp.android.androidbase.av_test.onboarding.upload_image.UploadImageViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context=".av_test.onboarding.upload_image.UploadImageFragment">
 
-</FrameLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/lineDark"
+            android:layout_width="151dp"
+            android:layout_height="6dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/line_dark"
+            android:layout_marginStart="25dp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="151dp"
+            android:layout_height="6dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/line_grey"
+            android:layout_marginEnd="25dp" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="79dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:fontFamily="@font/quicksand_medium"
+            android:textStyle="bold"
+            android:id="@+id/makeAvTestText"
+            android:text="Make AV Test Aids your own!"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lineDark" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:id="@+id/uploadImageView"
+            app:layout_constraintTop_toBottomOf="@id/makeAvTestText"
+            android:layout_marginTop="44dp"
+            android:src="@drawable/image_place_holder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addPhotoButton"
+            style="@style/AppTheme.HorizontalButtonAppearance"
+            android:layout_marginTop="70dp"
+            android:textSize="18sp"
+            android:layout_width="285dp"
+            android:text="Add photo"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:letterSpacing="-0.01"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/uploadImageView" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="39dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:fontFamily="@font/quicksand_medium"
+            android:id="@+id/skipTextView"
+            android:text="SKIP"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addPhotoButton" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

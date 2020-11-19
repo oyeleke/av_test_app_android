@@ -15,14 +15,14 @@
  */
 package com.avtestapp.android.androidbase.di
 
-import android.os.Build
-import androidx.work.Constraints
-import androidx.work.NetworkType
-import com.avtestapp.android.androidbase.BuildConfig
 import com.avtestapp.android.androidbase.auth.*
-import com.avtestapp.android.androidbase.av_test.apis.AccessTokenProviderImpl
-import com.avtestapp.android.androidbase.av_test.apis.ExampleAPIAuthService
-import com.avtestapp.android.androidbase.av_test.apis.ExampleApiService
+import com.avtestapp.android.androidbase.av_test.apis.AuthApiService
+import com.avtestapp.android.androidbase.av_test.apis.QuestionsApiService
+import com.avtestapp.android.androidbase.av_test.repository.AuthRepository
+import com.avtestapp.android.androidbase.av_test.repository.AuthRepositoryImpl
+import com.avtestapp.android.androidbase.av_test.repository.QuestionRepository
+import com.avtestapp.android.androidbase.av_test.repository.QuestionRespositoryImpl
+import com.avtestapp.android.androidbase.networkutils.NetworkConstants
 import com.google.gson.Gson
 import dagger.Lazy
 import dagger.Module
@@ -37,67 +37,33 @@ import javax.inject.Singleton
 @Module(includes = [LocalDataModule::class])
 class APIServiceModule {
 
-    // TODO ExampleAPIService is for testing purpose. Modify this class to suit your real API service set up
-
-    @Provides
-    @Named("ExampleService")
-    @Singleton
-    fun provideExampleServiceHttpClient(
-        upstream: OkHttpClient,
-        @Named("ExampleService") accessTokenProvider: AccessTokenProvider
-    ): OkHttpClient {
-        return upstream.newBuilder()
-            .addInterceptor(AccessTokenInterceptor(accessTokenProvider))
-            .authenticator(AccessTokenAuthenticator(accessTokenProvider))
-            .build()
-    }
-
     @Provides
     @Singleton
-    fun provideExampleAPIAuthService(
+    fun provideAPIAuthService(
         client: Lazy<OkHttpClient>,
         gson: Gson
-    ): ExampleAPIAuthService {
+    ): AuthApiService {
         return Retrofit.Builder()
-            .baseUrl(ExampleAPIAuthService.ENDPOINT)
+            .baseUrl(NetworkConstants.BASE_URL)
             .client(client.get())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-            .create(ExampleAPIAuthService::class.java)
+            .create(AuthApiService::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideExampleAPIService(
-        @Named("ExampleService") client: Lazy<OkHttpClient>,
+    fun provideApiQuestions(
+        client: Lazy<OkHttpClient>,
         gson: Gson
-    ): ExampleApiService {
+    ): QuestionsApiService{
         return Retrofit.Builder()
-            .baseUrl(ExampleApiService.ENDPOINT)
+            .baseUrl(NetworkConstants.BASE_URL)
             .client(client.get())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-            .create(ExampleApiService::class.java)
+            .create(QuestionsApiService::class.java)
     }
-
-    @Provides
-    @Singleton
-    fun provideWorkManagerConstraint(): Constraints {
-        return Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.UNMETERED)
-            .setRequiresBatteryNotLow(true)
-            .setRequiresCharging(true)
-            .apply {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    setRequiresDeviceIdle(true)
-                }
-            }.build()
-    }
-
-    @Provides
-    @Named("ExampleService")
-    fun provideAccessTokenProvider(accessTokenProvider: AccessTokenProviderImpl): AccessTokenProvider =
-        accessTokenProvider
 
     @Provides
     @Singleton
@@ -108,11 +74,9 @@ class APIServiceModule {
     @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().apply {
-            level = if (BuildConfig.DEBUG) {
+            level =
                 HttpLoggingInterceptor.Level.BODY
-            } else {
-                HttpLoggingInterceptor.Level.NONE
-            }
+
         }
 
     @Provides
@@ -123,4 +87,16 @@ class APIServiceModule {
     @Singleton
     fun provideGsonConverterFactory(gson: Gson): GsonConverterFactory =
         GsonConverterFactory.create(gson)
+
+
+    @Provides
+    @Singleton
+    fun provideAuthRepository(authApiService: AuthApiService): AuthRepository =
+        AuthRepositoryImpl(authApiService)
+
+    @Provides
+    @Singleton
+    fun provideQuestionRespository(questionsApiService: QuestionsApiService): QuestionRepository =
+        QuestionRespositoryImpl(questionsApiService)
 }
+

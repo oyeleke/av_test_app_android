@@ -41,11 +41,15 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     testImplementation 'junit:junit:' + versions.junit
     testImplementation "org.mockito:mockito-inline:" + versions.mockitoVersion
     testImplementation 'androidx.arch.core:core-testing:' + versions.coreTestingVersion
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:' + versions.coroutines
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:' + versions.coroutinesTest
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-debug:1.4.0'
+
 
     androidTestImplementation 'androidx.test:runner:' + versions.testRunner
     androidTestImplementation 'androidx.test.espresso:espresso-core:' + versions.espressoCore
@@ -96,6 +100,11 @@ dependencies {
 
     //workmanager
     implementation 'android.arch.work:work-runtime-ktx:' + versions.work
+
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+
+
+    implementation "com.github.bumptech.glide:glide:4.11.0"
 }
 
 apply from: '../spotless.gradle'

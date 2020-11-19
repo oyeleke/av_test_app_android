@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.AppCompatTextView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_dropdown"
+    android:layout_height="match_parent"
+    android:ellipsize="end"
+    android:longClickable="false"
+    android:maxLines="1"
+    android:layout_gravity="center_vertical"
+    android:paddingStart="10dp"
+    android:gravity="center_vertical"
+    android:fontFamily="@font/quicksand_bold"
+    android:backgroundTint="@android:color/transparent"
+    android:background="@android:color/transparent"
+    android:textColor="@color/colorPrimary"
+    tools:hint="What's your profession"
+    android:textColorHint="@color/colorPrimaryDark"
+    android:textSize="20sp">
 
 </androidx.appcompat.widget.AppCompatTextView>

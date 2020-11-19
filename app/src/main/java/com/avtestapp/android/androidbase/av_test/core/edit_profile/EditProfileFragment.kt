@@ -6,13 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.avtestapp.android.androidbase.App
 import com.avtestapp.android.androidbase.R
+import com.avtestapp.android.androidbase.base.BaseViewModel
+import com.avtestapp.android.androidbase.base.BaseViewModelFragment
+import javax.inject.Inject
 
-class EditProfileFragment : Fragment() {
+class EditProfileFragment : BaseViewModelFragment() {
 
-    companion object {
-        fun newInstance() = EditProfileFragment()
-    }
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var viewModel: EditProfileViewModel
 
@@ -23,10 +26,17 @@ class EditProfileFragment : Fragment() {
         return inflater.inflate(R.layout.edit_profile_fragment, container, false)
     }
 
+    override fun getViewModel() = viewModel
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(EditProfileViewModel::class.java)
-        // TODO: Use the ViewModel
+        (mainActivity.applicationContext as App).component.inject(this)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(EditProfileViewModel::class.java)
+        setupView()
+    }
+
+    private fun setupView() {
+        mainActivity.setUpToolBar("Edit Profile", isRootPage = false)
     }
 
 }

@@ -9,7 +9,7 @@
         android:id="@+id/landingPageFragment"
         android:name="com.avtestapp.android.androidbase.av_test.LandingPageFragment"
         android:label="fragment_landing_page"
-        tools:layout="@layout/fragment_landing_page" >
+        tools:layout="@layout/fragment_landing_page">
         <action
             android:id="@+id/action_landingPageFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -28,6 +28,12 @@
         <action
             android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_verificationFragment"
+            app:destination="@id/verificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -38,6 +44,9 @@
         <action
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_verificationFragment"
+            app:destination="@id/verificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -56,12 +65,22 @@
         <action
             android:id="@+id/action_verificationFragment_to_resetPasswordFragment"
             app:destination="@id/resetPasswordFragment" />
+        <argument
+            android:name="isForgotPassword"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_verificationFragment_to_onboardingStartFragment"
+            app:destination="@id/onboardingStartFragment" />
     </fragment>
     <fragment
         android:id="@+id/resetPasswordFragment"
         android:name="com.avtestapp.android.androidbase.av_test.auth.reset_password.ResetPasswordFragment"
         android:label="reset_password_fragment"
-        tools:layout="@layout/reset_password_fragment" />
+        tools:layout="@layout/reset_password_fragment" >
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashScreenFragment"
         android:name="com.avtestapp.android.androidbase.av_test.auth.splash.SplashScreenFragment"
@@ -71,4 +90,85 @@
             android:id="@+id/action_splashScreenFragment_to_landingPageFragment"
             app:destination="@id/landingPageFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.core.DashboardFragment"
+        android:label="dashboard_fragment"
+        tools:layout="@layout/dashboard_fragment" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_practiceQuestionsFragment"
+            app:destination="@id/practiceQuestionsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_studyQuestionFragment"
+            app:destination="@id/studyQuestionFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_markedQuestionFragment"
+            app:destination="@id/markedQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingStartFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.onboarding.OnboardingStartFragment"
+        android:label="fragment_onboarding_start"
+        tools:layout="@layout/fragment_onboarding_start" >
+        <action
+            android:id="@+id/action_onboardingStartFragment_to_uploadImageFragment"
+            app:destination="@id/uploadImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/uploadImageFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.onboarding.upload_image.UploadImageFragment"
+        android:label="UploadImageFragment"
+        tools:layout="@layout/upload_image_fragment"
+        >
+        <action
+            android:id="@+id/action_uploadImageFragment_to_onboarding3Fragment"
+            app:destination="@id/onboarding3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboarding3Fragment"
+        android:name="com.avtestapp.android.androidbase.av_test.onboarding.Onboarding3Fragment"
+        android:label="onboarding3_fragment"
+        tools:layout="@layout/onboarding3_fragment" >
+        <action
+            android:id="@+id/action_onboarding3Fragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionTypeFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.core.questions.QuestionTypeFragment"
+        android:label="QuestionTypeFragment"
+        tools:layout="@layout/fragment_questions_type">
+        <action
+            android:id="@+id/action_questionTypeFragment_to_studyQuestionFragment"
+            app:destination="@id/studyQuestionFragment" />
+        <action
+            android:id="@+id/action_questionTypeFragment_to_practiceQuestionsFragment"
+            app:destination="@id/practiceQuestionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/practiceQuestionsFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.core.questions.PracticeQuestionsFragment"
+        android:label="PracticeQuestionsFragment" />
+    <fragment
+        android:id="@+id/studyQuestionFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.core.questions.StudyQuestionFragment"
+        android:label="StudyQuestionFragment" />
+    <fragment
+        android:id="@+id/markedQuestionFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.core.questions.MarkedQuestionFragment"
+        android:label="MarkedQuestionFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.core.settings.SettingsFragment"
+        android:label="settings_fragment"
+        tools:layout="@layout/settings_fragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.core.edit_profile.EditProfileFragment"
+        android:label="edit_profile_fragment"
+        tools:layout="@layout/edit_profile_fragment" />
 </navigation>

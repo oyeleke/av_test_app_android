@@ -1,14 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".av_test.onboarding.OnboardingStartFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".av_test.onboarding.OnboardingStartFragment"
+        android:background="@color/colorPrimary">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/topGuideLine"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".35" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/startGuideLine"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".04" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/endGuideLine"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".94" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                app:layout_constraintTop_toBottomOf="@id/topGuideLine"
+                app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/boldTextLayout"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:id="@+id/text3Bold"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:textColor="@android:color/white"
+                    android:layout_marginEnd="10dp"
+                    android:text="Welcome, Toyin" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="3dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/emoji_hands_up" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/firstLine"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/boldTextLayout"
+                app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:letterSpacing="0.001"
+                android:textColor="@android:color/white"
+                android:text="@string/our_mission_is_to_let_you_pass_your"
+                android:textSize="22sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/secondLine"
+                android:layout_marginTop="2dp"
+                app:layout_constraintTop_toBottomOf="@id/firstLine"
+                app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:letterSpacing="0.001"
+                android:textColor="@android:color/white"
+                android:text="aviation exams in"
+                android:textSize="22sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/secondBoldLine"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintTop_toBottomOf="@id/firstLine"
+                app:layout_constraintStart_toEndOf="@id/secondLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_medium"
+                android:letterSpacing="0.001"
+                android:textColor="@android:color/white"
+                android:text="Flying colors"
+                android:textSize="22sp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/letsDoitButton"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/white"
+                android:backgroundTint="@android:color/white"
+                android:fontFamily="@font/quicksand_bold"
+                android:letterSpacing="0.01"
+                android:text="LET'S DO IT"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                app:layout_constraintTop_toBottomOf="@+id/secondLine" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </FrameLayout>
+</layout>
