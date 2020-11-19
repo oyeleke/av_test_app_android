@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    tools:context=".av_test.core.questions.QuestionsFragment">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/studyQuestionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/study_question_group_icon" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/practiceQuestionView"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/practice_question_group_icon"/>
+
+
+</FrameLayout>
