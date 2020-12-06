@@ -5,11 +5,14 @@ class PrefKeys {
     companion object {
         const val ACCESS_TOKEN = "ACCESS_TOKEN"
         const val USER_PROFILE = "user_profile"
+        const val USER_PROFILE_SINGLE = "user_profile_single"
         const val GENERIC_AUTH_RESPONSE = "auth_response"
         const val USER_RESPONSE = "user_response"
         const val PROFESSIONS_LIST = "profession_list"
         const val HAS_CLICKED_ON_PRACTICE_QUESTIONS = "has_clicked_on_practice question_before"
         const val HAS_CLICKED_ON_STUDY_QUESTIONS = "has_clicked_on_study question_before"
+        const val HAS_LOGGED_IN_BEFORE = "has_logged_in_before"
+        const val LAST_USER_EMAIL = "last_user_email"
 
     }
 }

@@ -75,8 +75,10 @@ class SignUpViewModel @Inject constructor(
                 is Result.Success -> {
                     _loadingStatus.value = LoadingStatus.Success
                     _userProfile.value = r.result
-                    prefsUtils.putObject(PrefKeys.USER_RESPONSE, r.result)
-r                }
+                    //prefsUtils.putObject(PrefKeys.USER_RESPONSE, r.result)
+                    prefsUtils.putObject(PrefKeys.USER_PROFILE, r.result)
+
+                }
 
                 is Result.Error -> {
                     _loadingStatus.value = LoadingStatus.Error(r.errorCode, r.errorMessage)

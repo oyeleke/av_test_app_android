@@ -72,6 +72,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="knowledgeScoreFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="304" />
+                            <option name="y" value="-647" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="landingPageFragment">
                     <value>
                       <LayoutPositions>
@@ -256,6 +268,15 @@
                             <option name="y" value="-414" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_settingsFragment_to_editProfileFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -297,6 +318,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_splashScreenFragment_to_landingPageFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_splashScreenFragment_to_loginFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

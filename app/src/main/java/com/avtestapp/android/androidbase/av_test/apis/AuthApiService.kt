@@ -46,6 +46,9 @@ interface AuthApiService {
     @POST("user/onboard")
     suspend fun onboardUser(@Header("Authorization") authorization: String, @Body onboardUserRequest: OnboardUserRequest) :Response<BaseResponse<Any>>
 
+    @GET("user/profile")
+    suspend fun getUser(@Header("Authorization") authorization: String) :Response<BaseResponse<ProfileResponse>>
+
 
     @GET("questions")
     suspend fun getQuestions(@Header("Authorization") authorization: String, @Query("profession")profession: String): Response<BaseResponse<QuestionResponse>>

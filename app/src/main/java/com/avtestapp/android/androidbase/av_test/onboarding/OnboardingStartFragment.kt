@@ -41,7 +41,7 @@ class OnboardingStartFragment : BaseFragment() {
             findNavController().navigate(OnboardingStartFragmentDirections.actionOnboardingStartFragmentToUploadImageFragment())
         }
 
-        val user = prefsUtils.getPrefAsObject(PrefKeys.USER_RESPONSE, LoginSignUpResponse::class.java)
+        val user = prefsUtils.getPrefAsObject(PrefKeys.USER_PROFILE, LoginSignUpResponse::class.java)
 
         binding.text3Bold.text = "Welcome, ${user.profile.firstName}"
     }

@@ -13,6 +13,8 @@ interface AuthRepository {
 
     suspend fun verifyUserAfterReg(bearerAndToken: String, verificationCode: String): Result<PasswordResetResponse>
 
+    suspend fun getUser(bearerAndToken: String): Result<ProfileResponse>
+
     suspend fun initiatePasswordReset(email: String): Result<PasswordResetResponse>
 
     suspend fun verifyPasswordResetCode(resetCode: String, email: String): Result<PasswordResetResponse>

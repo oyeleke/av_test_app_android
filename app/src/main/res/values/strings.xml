@@ -28,5 +28,6 @@
     <string name="shuffle_mode">Shuffle Mode</string>
     <string name="select_questions_in_random_sequence">Select questions in random sequence</string>
     <string name="show_correct_answer_only">Show correct answer only</string>
+    <string name="keep_practicing">Keep practicing</string>
 
 </resources>

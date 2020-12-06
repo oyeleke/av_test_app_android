@@ -21,9 +21,11 @@ import com.avtestapp.android.androidbase.av_test.auth.forgot_password.ForgotPass
 import com.avtestapp.android.androidbase.av_test.auth.login.LoginFragment
 import com.avtestapp.android.androidbase.av_test.auth.reset_password.ResetPasswordFragment
 import com.avtestapp.android.androidbase.av_test.auth.sign_up.SignUpFragment
+import com.avtestapp.android.androidbase.av_test.auth.splash.SplashScreenFragment
 import com.avtestapp.android.androidbase.av_test.auth.verification.VerificationFragment
 import com.avtestapp.android.androidbase.av_test.core.DashboardFragment
 import com.avtestapp.android.androidbase.av_test.core.edit_profile.EditProfileFragment
+import com.avtestapp.android.androidbase.av_test.core.knowledge_score.KnowledgeScoreFragment
 import com.avtestapp.android.androidbase.av_test.core.questions.PracticeQuestionsFragment
 import com.avtestapp.android.androidbase.av_test.core.questions.QuestionTypeFragment
 import com.avtestapp.android.androidbase.av_test.core.questions.StudyQuestionFragment
@@ -58,6 +60,8 @@ interface AppComponent {
     fun inject(target: DashboardFragment)
     fun inject(target: SettingsFragment)
     fun inject(target: EditProfileFragment)
+    fun inject(target: SplashScreenFragment)
+    fun inject(target: KnowledgeScoreFragment)
 
 
     @Component.Builder

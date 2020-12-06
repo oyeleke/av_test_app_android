@@ -67,7 +67,7 @@ class Onboarding3ViewModel @Inject constructor(
         _loadingStatus.value =
             LoadingStatus.Loading(resourceProvider.getString(R.string.please_wait))
         val token = prefsUtils.getPrefAsObject(
-            PrefKeys.USER_RESPONSE,
+            PrefKeys.USER_PROFILE,
             LoginSignUpResponse::class.java
         ).tokenData.token
         val bearer = "Bearer ".plus(token)
@@ -92,7 +92,7 @@ class Onboarding3ViewModel @Inject constructor(
             LoadingStatus.Loading(resourceProvider.getString(R.string.please_wait))
 
         val token = prefsUtils.getPrefAsObject(
-            PrefKeys.USER_RESPONSE,
+            PrefKeys.USER_PROFILE,
             LoginSignUpResponse::class.java
         ).tokenData.token
         val bearer = "Bearer ".plus(token)
@@ -105,6 +105,7 @@ class Onboarding3ViewModel @Inject constructor(
             )) {
                 is Result.Success -> {
                     _onboardingSuccessful.value = Event(true)
+                    sharedPrefs.saveIfUserHasLoggedInBefore()
                     _loadingStatus.value = LoadingStatus.Success
                 }
                 is Result.Error -> {

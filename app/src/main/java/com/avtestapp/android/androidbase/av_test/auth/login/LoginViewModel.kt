@@ -68,6 +68,8 @@ class LoginViewModel @Inject constructor(
                     _loadingStatus.value = LoadingStatus.Success
                     _userProfile.value = result.result.profile
                     prefsUtils.putObject(PrefKeys.USER_PROFILE, result.result)
+                    prefsUtils.putString(PrefKeys.LAST_USER_EMAIL, email.value)
+                    sharedPrefs.saveIfUserHasLoggedInBefore()
                     getProfessionalList()
                 }
 

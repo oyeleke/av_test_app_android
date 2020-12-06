@@ -89,6 +89,9 @@
         <action
             android:id="@+id/action_splashScreenFragment_to_landingPageFragment"
             app:destination="@id/landingPageFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
@@ -104,6 +107,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_markedQuestionFragment"
             app:destination="@id/markedQuestionFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_knowledgeScoreFragment"
+            app:destination="@id/knowledgeScoreFragment" />
     </fragment>
     <fragment
         android:id="@+id/onboardingStartFragment"
@@ -171,4 +177,9 @@
         android:name="com.avtestapp.android.androidbase.av_test.core.edit_profile.EditProfileFragment"
         android:label="edit_profile_fragment"
         tools:layout="@layout/edit_profile_fragment" />
+    <fragment
+        android:id="@+id/knowledgeScoreFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.core.knowledge_score.KnowledgeScoreFragment"
+        android:label="knowledge_score_fragment"
+        tools:layout="@layout/knowledge_score_fragment" />
 </navigation>

@@ -16,6 +16,7 @@ import com.avtestapp.android.androidbase.base.BaseViewModel
 import com.avtestapp.android.androidbase.base.BaseViewModelFragment
 import com.avtestapp.android.androidbase.databinding.LoginFragmentBinding
 import com.avtestapp.android.androidbase.extensions.setFeedbackSource
+import com.avtestapp.android.androidbase.utils.CommonSharedPrefs
 import javax.inject.Inject
 
 class LoginFragment : BaseViewModelFragment() {
@@ -25,6 +26,8 @@ class LoginFragment : BaseViewModelFragment() {
 
     lateinit var binding: LoginFragmentBinding
 
+    @Inject
+    lateinit var sharedPrefs: CommonSharedPrefs
 
     private lateinit var viewModel: LoginViewModel
 
@@ -63,6 +66,9 @@ class LoginFragment : BaseViewModelFragment() {
         binding.contentFragmentLogin.signUpLink.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSignUpFragment())
         }
+
+        binding.contentFragmentLogin.emailTextInputEditText.setText(sharedPrefs.getLastUSerEmail())
+        viewModel.email.value = sharedPrefs.getLastUSerEmail()
     }
     fun subscribeObservables(){
         binding.contentFragmentLogin.emailTextInputEditText.setFeedbackSource(this, viewModel.email)

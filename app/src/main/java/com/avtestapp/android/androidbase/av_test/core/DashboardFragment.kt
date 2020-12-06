@@ -81,7 +81,7 @@ class DashboardFragment : BaseViewModelFragment() {
         }
 
         binding.knowledgeScore.setOnClickListener {
-
+            findNavController().navigate(DashboardFragmentDirections.actionDashboardFragmentToKnowledgeScoreFragment())
         }
     }
 

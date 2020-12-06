@@ -76,7 +76,7 @@ class VerificationViewModel @Inject constructor(
         val otpCode = "${code1.value}${code2.value}${code3.value}${code4.value}"
 
         val token = prefsUtils.getPrefAsObject(
-            PrefKeys.USER_RESPONSE,
+            PrefKeys.USER_PROFILE,
             LoginSignUpResponse::class.java
         ).tokenData.token
         val bearer = "Bearer ".plus(token)

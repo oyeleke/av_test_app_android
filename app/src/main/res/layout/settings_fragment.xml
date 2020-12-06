@@ -35,10 +35,25 @@
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/customerImageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="89dp"
+                        android:layout_height="89dp"
+                        android:visibility="gone"
                         android:layout_gravity="center_vertical"
                         app:srcCompat="@drawable/profile_picture_demo" />
+
+                    <TextView
+                        android:id="@+id/userInitialsText"
+                        android:layout_width="89dp"
+                        android:layout_height="89dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/drawer_user_initial_bg"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:gravity="center"
+                        android:textAllCaps="true"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp"
+                        tools:text="TO" />
+
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"

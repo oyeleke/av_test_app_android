@@ -24,6 +24,7 @@ import com.avtestapp.android.androidbase.av_test.auth.sign_up.SignUpViewModel
 import com.avtestapp.android.androidbase.av_test.auth.verification.VerificationViewModel
 import com.avtestapp.android.androidbase.av_test.core.DashboardViewModel
 import com.avtestapp.android.androidbase.av_test.core.edit_profile.EditProfileViewModel
+import com.avtestapp.android.androidbase.av_test.core.knowledge_score.KnowledgeScoreViewModel
 import com.avtestapp.android.androidbase.av_test.core.questions.QuestionDialogViewModel
 import com.avtestapp.android.androidbase.av_test.core.questions.QuestionViewModel
 import com.avtestapp.android.androidbase.av_test.core.settings.SettingsViewModel
@@ -100,6 +101,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(EditProfileViewModel::class)
     abstract fun bindsEditProfileViewModel(viewModel: EditProfileViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(KnowledgeScoreViewModel::class)
+    abstract fun bindsKnowledgeScoreViewModel(viewModel: KnowledgeScoreViewModel): ViewModel
 
 
 

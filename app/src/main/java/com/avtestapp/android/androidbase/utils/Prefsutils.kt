@@ -40,6 +40,21 @@ class PrefsUtils @Inject constructor(private val sharedPref: SharedPreferences, 
         }
     }
 
+    fun removePref(key: String) {
+        if (doesContain(key)) {
+            sharedPref.edit {
+                remove(key)
+            }
+        }
+    }
+
+    fun removePref(vararg keys: String) {
+        for (key in keys){
+            removePref(key)
+        }
+    }
+
+
     fun putInt(key: String, value: Int) {
         sharedPref.edit {
             putInt(key, value)

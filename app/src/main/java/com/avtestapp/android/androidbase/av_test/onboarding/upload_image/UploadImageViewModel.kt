@@ -37,7 +37,7 @@ class UploadImageViewModel @Inject constructor(
         if (!uploadImageForm.verify()) return
 
         val token = prefsUtils.getPrefAsObject(
-            PrefKeys.USER_RESPONSE,
+            PrefKeys.USER_PROFILE,
             LoginSignUpResponse::class.java
         ).tokenData.token
         val bearer = "Bearer ".plus(token)

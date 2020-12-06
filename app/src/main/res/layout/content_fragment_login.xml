@@ -81,6 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:visibility="gone"
                 android:id="@+id/rememberMeLayout"
                 app:layout_constraintStart_toStartOf="@id/startGuidline"
                 app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout">
@@ -104,17 +105,7 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/cantSignInText"
-                app:layout_constraintEnd_toEndOf="@id/endGuideline"
-                app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout"
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Can't sign in ?"
-                android:textColor="@color/colorPrimaryDark"
-                android:fontFamily="@font/quicksand"
-                android:letterSpacing="0.001" />
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/signInButton"
@@ -127,6 +118,19 @@
                 app:layout_constraintStart_toStartOf="@id/startGuidline"
                 app:layout_constraintTop_toBottomOf="@+id/rememberMeLayout" />
 
+            <TextView
+                android:id="@+id/cantSignInText"
+                app:layout_constraintEnd_toEndOf="@id/endGuideline"
+                app:layout_constraintStart_toStartOf="@id/startGuidline"
+                app:layout_constraintTop_toBottomOf="@id/signInButton"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Can't sign in ?"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/quicksand"
+                android:letterSpacing="0.001" />
+
             <LinearLayout
                 android:id="@+id/dontHaveAccountTextLayout"
                 android:layout_width="0dp"
@@ -136,7 +140,7 @@
                 android:gravity="center_horizontal"
                 app:layout_constraintEnd_toEndOf="@id/endGuideline"
                 app:layout_constraintStart_toStartOf="@id/startGuidline"
-                app:layout_constraintTop_toBottomOf="@+id/signInButton">
+                app:layout_constraintTop_toBottomOf="@+id/cantSignInText">
 
                 <TextView
                     android:layout_width="wrap_content"

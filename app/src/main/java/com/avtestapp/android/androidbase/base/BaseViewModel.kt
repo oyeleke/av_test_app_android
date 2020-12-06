@@ -19,13 +19,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.avtestapp.android.androidbase.networkutils.LoadingStatus
+import com.avtestapp.android.androidbase.utils.CommonSharedPrefs
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import javax.inject.Inject
 
 abstract class BaseViewModel() : ViewModel() {
 
     val observablesList: MutableList<LiveData<*>> = mutableListOf()
+
+    @Inject
+    lateinit var sharedPrefs: CommonSharedPrefs
 
     private val viewModelBackgroundJob = SupervisorJob()
     protected val viewModelIOScope = CoroutineScope(viewModelBackgroundJob + Dispatchers.IO)

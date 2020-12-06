@@ -1,7 +1,11 @@
 package com.avtestapp.android.androidbase.base
 
+import android.net.Uri
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.lifecycle.Observer
+import com.avtestapp.android.androidbase.R
 import com.avtestapp.android.androidbase.networkutils.LoadingStatus
+import com.bumptech.glide.Glide
 import timber.log.Timber
 
 abstract class BaseViewModelFragment : BaseFragment() {
@@ -31,6 +35,14 @@ abstract class BaseViewModelFragment : BaseFragment() {
         super.onDestroyView()
         getViewModel().addAllLiveDataToObservablesList()
         for (liveData in getViewModel().observablesList) liveData.removeObservers(this)
+    }
+
+    fun displayCircularImage(url: String, imageView: AppCompatImageView) {
+        Glide.with(requireActivity())
+            .load(url)
+            .circleCrop()
+            .placeholder(R.drawable.default_rectangle_image)
+            .into(imageView)
     }
 
     abstract fun getViewModel(): BaseViewModel
