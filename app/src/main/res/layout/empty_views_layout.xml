@@ -42,6 +42,8 @@
                 android:layout_height="wrap_content"
                 app:fontFamily="@font/quicksand"
                 android:textSize="20sp"
+                android:padding="10dp"
+                android:gravity="center"
                 android:layout_marginTop="2dp"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@android:color/black"

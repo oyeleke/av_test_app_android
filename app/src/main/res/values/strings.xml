@@ -1,15 +1,13 @@
 <resources>
-    <string name="app_name">AndroidBaseProjectKotlin</string>
+    <string name="app_name">AV TEST AID</string>
     <string name="default_loading_message">Loading, Please wait . . .</string>
     <string name="ok">OK</string>
     <string name="breed_list_info">Below are the list of common cat breeds. Click on any of the breeds to view more detailed information about the breed</string>
-
     <string name="basic_sample">Basic Sample</string>
     <string name="advanced_sample">Advanced Sample</string>
     <string name="breed_details_advanced">Breed Details Advanced</string>
     <string name="cat_breeds">Cat Breeds</string>
     <string name="breed_list">Breed List</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="close">Close</string>
     <string name="please_wait">Please wait ....</string>
@@ -29,5 +27,8 @@
     <string name="select_questions_in_random_sequence">Select questions in random sequence</string>
     <string name="show_correct_answer_only">Show correct answer only</string>
     <string name="keep_practicing">Keep practicing</string>
-
+    <string name="you_scored">You scored</string>
+    <string name="percentage_score"> %1$s</string>
+    <string name="you_missed_05_50">You missed %1$s</string>
+    <string name="marked_question">Marked Question</string>
 </resources>

@@ -8,9 +8,10 @@ import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface QuestionsApiService {
-
-
     @GET("questions")
     suspend fun getQuestions(@Header("Authorization") authorization: String, @Query("profession")profession: String): Response<BaseResponse<QuestionResponse>>
+
+    @GET("search")
+    suspend fun searchQuestion(@Header("Authorization")authorization: String, @Query("searchTerm")searchTerm: String): Response<BaseResponse<QuestionResponse>>
 
 }

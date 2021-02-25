@@ -13,11 +13,13 @@
         android:layout_height="match_parent"
         tools:context=".av_test.core.settings.SettingsFragment">
 
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
+        <ScrollView
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,8 +39,8 @@
                         android:id="@+id/customerImageView"
                         android:layout_width="89dp"
                         android:layout_height="89dp"
-                        android:visibility="gone"
                         android:layout_gravity="center_vertical"
+                        android:visibility="gone"
                         app:srcCompat="@drawable/profile_picture_demo" />
 
                     <TextView
@@ -308,6 +310,7 @@
                     android:orientation="horizontal"
                     android:paddingStart="20dp"
                     android:paddingEnd="10dp"
+                    android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/practiceQuestionShuffleModeLayoutDivider">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
@@ -352,10 +355,23 @@
                     android:layout_height="2dp"
                     android:layout_marginTop="20dp"
                     android:background="@color/dividerColor"
+                    android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@id/practiceQuestionCorrectQuestionLayout" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/changePassword"
+                    style="@style/AppTheme.HorizontalButtonAppearance"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:letterSpacing="-0.01"
+                    android:text="Change Password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/practiceQuestionCorrectQuestionLayoutDivider" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

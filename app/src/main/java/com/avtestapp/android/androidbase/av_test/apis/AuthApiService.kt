@@ -1,8 +1,6 @@
 package com.avtestapp.android.androidbase.av_test.apis
 
-import com.avtestapp.android.androidbase.av_test.models.requests.LoginRequest
-import com.avtestapp.android.androidbase.av_test.models.requests.OnboardUserRequest
-import com.avtestapp.android.androidbase.av_test.models.requests.RegisterRequest
+import com.avtestapp.android.androidbase.av_test.models.requests.*
 import com.avtestapp.android.androidbase.av_test.models.response.*
 import okhttp3.MultipartBody
 import retrofit2.Response
@@ -35,7 +33,6 @@ interface AuthApiService {
     @POST("user/password/new")
     suspend fun createNewPassword(@Field("_id")id: String, @Field("password")password: String): Response<BaseResponse<PasswordResetResponse>>
 
-
     @Multipart
     @POST("user/image")
     suspend fun uploadUserImage(@Header("Authorization")authorization: String, @Part  image: MultipartBody.Part ): Response<BaseResponse<PasswordResetResponse>>
@@ -52,4 +49,14 @@ interface AuthApiService {
 
     @GET("questions")
     suspend fun getQuestions(@Header("Authorization") authorization: String, @Query("profession")profession: String): Response<BaseResponse<QuestionResponse>>
-}
+
+    @PUT("password/change")
+    suspend fun changePassword(@Header("Authorization") authorization: String, @Body changePasswordRequest: ChangePasswordRequest):Response<BaseResponse<Any>>
+
+    @GET("user/score")
+    suspend fun getScore(@Header("Authorization")authorization: String): Response<BaseResponse<Float>>
+
+    @POST("user/score")
+    suspend fun postScores(@Header("Authorization")authorization: String, @Body postUsersScoreRequest: PostUsersScoreRequest): Response<BaseResponse<Any>>
+
+  }

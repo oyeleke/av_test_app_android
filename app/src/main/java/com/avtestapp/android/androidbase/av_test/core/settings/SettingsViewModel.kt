@@ -1,12 +1,16 @@
 package com.avtestapp.android.androidbase.av_test.core.settings
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.avtestapp.android.androidbase.Interactors.LoginUser
 import com.avtestapp.android.androidbase.PrefKeys
 import com.avtestapp.android.androidbase.R
 import com.avtestapp.android.androidbase.av_test.models.response.LoginSignUpResponse
+import com.avtestapp.android.androidbase.av_test.models.response.ProfileResponse
 import com.avtestapp.android.androidbase.av_test.repository.AuthRepository
 import com.avtestapp.android.androidbase.base.BaseViewModel
+import com.avtestapp.android.androidbase.extensions.Event
 import com.avtestapp.android.androidbase.networkutils.LoadingStatus
 import com.avtestapp.android.androidbase.networkutils.Result
 import com.avtestapp.android.androidbase.utils.PrefsUtils
@@ -21,8 +25,13 @@ class SettingsViewModel @Inject constructor(
     val prefsUtils: PrefsUtils,
     val resourceProvider: ResourceProvider
 ) : BaseViewModel() {
-    override fun addAllLiveDataToObservablesList() {
+    private val _userProfileGotten = MutableLiveData<Event<ProfileResponse>>()
 
+    val userProfileGotten: LiveData<Event<ProfileResponse>>
+        get() = _userProfileGotten
+
+    override fun addAllLiveDataToObservablesList() {
+        observablesList.add(userProfileGotten)
     }
 
     fun getUser() {
@@ -37,7 +46,9 @@ class SettingsViewModel @Inject constructor(
             when (val r = authRepository.getUser(bearer)) {
                 is Result.Success -> {
                     Timber.e("successful got here ")
+                    _userProfileGotten.value = Event(r.result)
                     prefsUtils.putObject(PrefKeys.USER_PROFILE_SINGLE, r.result)
+                    _loadingStatus.value = LoadingStatus.Success
                 }
                 is Result.Error -> {
                     Timber.e(r.errorMessage)

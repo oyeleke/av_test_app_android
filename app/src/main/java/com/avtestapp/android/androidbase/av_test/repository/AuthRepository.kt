@@ -1,8 +1,6 @@
 package com.avtestapp.android.androidbase.av_test.repository
 
-import com.avtestapp.android.androidbase.av_test.models.requests.LoginRequest
-import com.avtestapp.android.androidbase.av_test.models.requests.OnboardUserRequest
-import com.avtestapp.android.androidbase.av_test.models.requests.RegisterRequest
+import com.avtestapp.android.androidbase.av_test.models.requests.*
 import com.avtestapp.android.androidbase.av_test.models.response.*
 import com.avtestapp.android.androidbase.networkutils.Result
 
@@ -31,4 +29,9 @@ interface AuthRepository {
 
     suspend fun getQuestions(bearerAndToken: String, profession: String): Result<QuestionResponse>
 
+    suspend fun changePassword(bearerAndToken: String, changePasswordRequest: ChangePasswordRequest): Result<Any>
+
+    suspend fun getScore(bearerAndToken: String): Result<Float>
+
+    suspend fun submitScore(bearerAndToken: String, postUsersScoreRequest: PostUsersScoreRequest): Result<Any>
 }

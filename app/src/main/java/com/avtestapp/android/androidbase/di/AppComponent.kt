@@ -24,11 +24,13 @@ import com.avtestapp.android.androidbase.av_test.auth.sign_up.SignUpFragment
 import com.avtestapp.android.androidbase.av_test.auth.splash.SplashScreenFragment
 import com.avtestapp.android.androidbase.av_test.auth.verification.VerificationFragment
 import com.avtestapp.android.androidbase.av_test.core.DashboardFragment
+import com.avtestapp.android.androidbase.av_test.core.change_password.ChangePasswordFragment
 import com.avtestapp.android.androidbase.av_test.core.edit_profile.EditProfileFragment
 import com.avtestapp.android.androidbase.av_test.core.knowledge_score.KnowledgeScoreFragment
-import com.avtestapp.android.androidbase.av_test.core.questions.PracticeQuestionsFragment
-import com.avtestapp.android.androidbase.av_test.core.questions.QuestionTypeFragment
-import com.avtestapp.android.androidbase.av_test.core.questions.StudyQuestionFragment
+import com.avtestapp.android.androidbase.av_test.core.marked_question.MarkedPracticeQuestionFragment
+import com.avtestapp.android.androidbase.av_test.core.marked_question.MarkedQuestionsFragment
+import com.avtestapp.android.androidbase.av_test.core.marked_question.MarkedStudyQuestionFragment
+import com.avtestapp.android.androidbase.av_test.core.questions.*
 import com.avtestapp.android.androidbase.av_test.core.settings.SettingsFragment
 import com.avtestapp.android.androidbase.av_test.modals.QuestionTypeBottomSheetModal
 import com.avtestapp.android.androidbase.av_test.onboarding.Onboarding3Fragment
@@ -62,6 +64,12 @@ interface AppComponent {
     fun inject(target: EditProfileFragment)
     fun inject(target: SplashScreenFragment)
     fun inject(target: KnowledgeScoreFragment)
+    fun inject(target: ReviewQuestionsFragment)
+    fun inject(target: MarkedQuestionsFragment)
+    fun inject(target: MarkedPracticeQuestionFragment)
+    fun inject(target: MarkedStudyQuestionFragment)
+    fun inject(target: ChangePasswordFragment)
+
 
 
     @Component.Builder

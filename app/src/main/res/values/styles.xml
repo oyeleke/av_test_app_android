@@ -20,6 +20,10 @@
         <item name="android:background">@drawable/input_edit_text_selector</item>
     </style>
 
+    <style name="test">
+      <item name="android:state_selected">true</item>
+    </style>
+
     <style name="AppTheme.TextInputLayoutContainer" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_width">0dp</item>
         <item name="hintEnabled">false</item>
@@ -110,6 +114,10 @@
         <item name="android:minWidth">23dp</item>
         <item name="android:maxWidth">25dp</item>
         <item name="android:maxHeight">25dp</item>
+    </style>
+
+    <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/quicksand_medium</item>
     </style>
 
 </resources>

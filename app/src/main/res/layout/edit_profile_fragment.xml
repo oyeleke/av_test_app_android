@@ -169,6 +169,37 @@
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/licenseNumberInputLayout"
+                    android:id="@+id/nationalityLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="Nationality"
+                    android:layout_marginTop="22dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/nationalityInputLayout"
+                    style="@style/AppTheme.TextInputLayoutContainerFullWidth"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="45dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/nationalityLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nationalityInputEditText"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:enabled="false"
+                        android:textColor="@color/colorPrimary"
+                        android:fontFamily="@font/quicksand_bold"
+                        style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
 
 
 
@@ -176,6 +207,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginTop="20dp"
                     android:layout_height="wrap_content"
+                    android:id="@+id/buttonsLinearLayout"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@id/licenseNumberInputLayout">
 
@@ -183,7 +215,7 @@
                         android:id="@+id/signInButton"
                         style="@style/AppTheme.HorizontalButtonAppearance"
                         android:letterSpacing="-0.01"
-                        android:visibility="invisible"
+                        android:visibility="gone"
                         android:text="SAVE"
                         android:layout_gravity="start|center_vertical"
                         android:layout_width="100dp"
@@ -197,20 +229,24 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/licenseNumberInputLayout"
-                        android:id="@+id/logout"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="end|center_vertical"
-                        android:fontFamily="@font/quicksand"
-                        android:text="Logout" />
+
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    app:layout_constraintTop_toBottomOf="@id/nationalityInputLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/logout"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="25dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/quicksand"
+                    android:text="Logout" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>

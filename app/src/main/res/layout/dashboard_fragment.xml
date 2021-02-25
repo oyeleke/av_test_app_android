@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.avtestapp.android.androidbase.av_test.core.questions.QuestionViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -62,6 +64,7 @@
                             android:id="@+id/searchTextInputEditText"
                             style="@style/AppTheme.TextAppearance.TextInputLayoutStyle"
                             android:gravity="center_vertical"
+                            rxtext="@{viewModel.searchTerm}"
                             android:hint="Search hint"
                             android:inputType="text" />
 
@@ -318,6 +321,54 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
         </com.google.android.material.card.MaterialCardView>
 
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="resumePracticeQuestion, resumeStudyQuestion, markedQuestions, knowledgeScore"
+            android:id="@+id/allCardsGroup"
+            android:visibility="visible"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            android:id="@+id/searchQuestionsRecyclerView"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            questionsList="@{viewModel.searchQuestionList}"
+            app:layout_constraintStart_toStartOf="@id/startGuidline"
+            app:layout_constraintEnd_toEndOf="@id/endGuidline"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_layout"
+            app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabButton"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:fabSize="normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_baseline_clear_24"
+            android:tint="@android:color/white"
+            android:backgroundTint="@color/colorRed"
+            app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_layout"
+            app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:id="@+id/emptyViewLinearLayout">
+            <include
+                android:id="@+id/emptyView"
+                layout="@layout/empty_views_layout"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

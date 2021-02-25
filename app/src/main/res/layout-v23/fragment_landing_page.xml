@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/quicksand"
                 android:lineSpacingExtra="0.01dp"
-                android:text="pass your avaition exam in flying colors"
+                android:text="pass your aviation exam in flying colors"
                 android:textColor="@android:color/white"
                 app:layout_constraintStart_toStartOf="@id/startGuidline"
                 app:layout_constraintTop_toBottomOf="@id/firstTextView" />

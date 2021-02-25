@@ -19,6 +19,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.avtestapp.android.androidbase.av_test.core.DashboardAdapter
+import com.avtestapp.android.androidbase.av_test.models.response.Question
 import com.avtestapp.android.androidbase.custom_views.ClickToSelectEditText
 import com.avtestapp.android.androidbase.custom_views.OnboardingFormDropDown
 import com.avtestapp.android.androidbase.utils.FormField
@@ -26,6 +28,10 @@ import com.google.android.material.textfield.TextInputEditText
 import timber.log.Timber
 
 
+@BindingAdapter("questionsList")
+fun bindQuestionsList(recyclerView: RecyclerView, data: List<Question>?){
+    data?.let { (recyclerView.adapter as? DashboardAdapter)?.submitList(it) }
+}
 
 @BindingAdapter("rxtext")
 fun bindTextWatcherUnsafe(view: TextInputEditText, formField: FormField<*>?) {

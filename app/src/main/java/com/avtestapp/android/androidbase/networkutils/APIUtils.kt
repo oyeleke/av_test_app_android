@@ -15,22 +15,11 @@
  */
 package com.avtestapp.android.androidbase.networkutils
 
-import com.avtestapp.android.androidbase.av_test.models.response.BaseResponse
-import com.avtestapp.android.androidbase.networkutils.GenericErrors.ERROR_UNKNOWN
-import com.avtestapp.android.androidbase.networkutils.NetworkConstants.NETWORK_TIMEOUT
-import com.avtestapp.android.androidbase.networkutils.NetworkErrors.NETWORK_ERROR_TIMEOUT
-import com.avtestapp.android.androidbase.networkutils.NetworkErrors.NETWORK_ERROR_UNKNOWN
+import com.avtestapp.android.androidbase.av_test.models.response.ErrorResponse
 import com.google.gson.Gson
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.TimeoutCancellationException
-import kotlinx.coroutines.withContext
-import kotlinx.coroutines.withTimeout
 import okhttp3.ResponseBody
-import org.json.JSONObject
-import retrofit2.HttpException
 import retrofit2.Response
 import timber.log.Timber
-import java.io.IOException
 
 const val GENERIC_ERROR_MESSAGE = "An error occurred, Please try again"
 const val GENERIC_ERROR_CODE = "-1"
@@ -44,85 +33,23 @@ fun <T : Any> getAPIResult(response: Response<T>): Result<T> {
     } else {
 
         val errorBody = response.errorBody()
-        Timber.e("${(errorBody as ResponseBody).string()}")
+        val messageString = """${(errorBody as ResponseBody).string()}"""
 
-        val message = (errorBody as ResponseBody).string()
-        if (errorBody != null) {
-            return Result.Error(
-                getErrorCode(errorBody), getErrorMessage(errorBody)
-            )
+        Timber.e(" ======= $messageString")
+
+        val gson = Gson()
+        val messageJson = gson.fromJson<ErrorResponse>(messageString, ErrorResponse::class.java)
+
+
+        val message = messageJson.message
+        Timber.e("========= message  ======= $message ========")
+        if (message != null) {
+            return Result.Error("${response.code()}", message)
         }
+
     }
     return Result.Error("${response.code()}", response.message())
 }
 
-fun getErrorMessage(responseBody: ResponseBody): String {
-    val gson = Gson()
-    val adapter  = gson.getAdapter(BaseResponse::class.java)
-    val errorString = responseBody.string()
-    var errorResponse = adapter.fromJson(errorString)
-    return try {
 
-        val jsonObject = JSONObject(responseBody.string())
-        jsonObject.getString("message").replace("_".toRegex(), " ")
-    } catch (e: Exception) {
-        Timber.e(e)
-        GENERIC_ERROR_MESSAGE
-    }
-}
 
-fun getErrorCode(errorBody: ResponseBody): String {
-    return try {
-        val errorBodyJsonObject = JSONObject(errorBody.string())
-        errorBodyJsonObject.getString("code")
-    } catch (e: Exception) {
-        Timber.e(e)
-        GENERIC_ERROR_CODE
-    }
-}
-
-suspend fun <T> safeApiCall(
-    dispatcher: CoroutineDispatcher,
-    apiCall: suspend () -> T?
-): ApiResult<T?> {
-    return withContext(dispatcher) {
-        try {
-            ApiResult.Success(apiCall.invoke())
-        } catch (throwable: Throwable) {
-            throwable.printStackTrace()
-            when (throwable) {
-                is TimeoutCancellationException -> {
-                    val code = 408 // timeout error code
-                    ApiResult.GenericError(code, NETWORK_ERROR_TIMEOUT)
-                }
-                is IOException -> {
-                    ApiResult.NetworkError
-                }
-                is HttpException -> {
-                    val code = throwable.code()
-                    val errorResponse = convertErrorBody(throwable)
-                    Timber.e(errorResponse)
-                    ApiResult.GenericError(
-                        code,
-                        errorResponse
-                    )
-                }
-                else -> {
-                    Timber.e(NETWORK_ERROR_UNKNOWN)
-                    ApiResult.GenericError(
-                        null,
-                        NETWORK_ERROR_UNKNOWN
-                    )
-                }
-            }
-        }
-    }
-}
-
-private fun convertErrorBody(throwable: HttpException): String? {
-    return try {
-        throwable.response()?.errorBody()?.string()
-    } catch (exception: Exception) {
-        ERROR_UNKNOWN
-    }
-}

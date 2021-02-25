@@ -10,7 +10,8 @@ import com.avtestapp.android.androidbase.R
 import com.avtestapp.android.androidbase.base.BaseFragment
 import com.avtestapp.android.androidbase.databinding.FragmentLandingPageBinding
 
-class LandingPageFragment : BaseFragment() {
+class
+LandingPageFragment : BaseFragment() {
 
     lateinit var binding: FragmentLandingPageBinding
 

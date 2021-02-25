@@ -21,7 +21,10 @@ abstract class BaseViewModelFragment : BaseFragment() {
                     Timber.e("I, \"mainActivity.dismissLoading\", can testify that I have been called")
 
                 }
-                is LoadingStatus.Loading -> mainActivity.showLoading(it.message)
+                is LoadingStatus.Loading -> {
+                    Timber.e("Loading Loading Loading ..... ${it.message}")
+                    mainActivity.showLoading(it.message)
+                }
                 is LoadingStatus.Error -> {
                     Timber.d("I, \"mainActivity.showError\", can testify that I have been called")
                     mainActivity.showError(it.errorMessage)

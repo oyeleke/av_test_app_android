@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 
-data class Question (
+data class Question(
     @SerializedName("_id")
     @Expose
     var id: String,
@@ -15,15 +15,15 @@ data class Question (
 
     @SerializedName("explanation")
     @Expose
-    var explanation: String,
+    var explanation: String? = "",
 
     @SerializedName("profession")
     @Expose
-    var profession: String,
+    var profession: Profession,
 
     @SerializedName("topic")
     @Expose
-    var topic: String,
+    var topic: Topic,
 
     @SerializedName("options")
     @Expose
@@ -35,6 +35,11 @@ data class Question (
 
     @SerializedName("__v")
     @Expose
-    var v: Int
+    var v: Int,
+
+    var isBookmarked: Boolean = false,
+
+    var isPracticeQuestion: Boolean = false
 
 )
+

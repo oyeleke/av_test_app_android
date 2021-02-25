@@ -8,6 +8,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="changePasswordFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="2391" />
+                            <option name="y" value="-32" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="dashboardFragment">
                     <value>
                       <LayoutPositions>
@@ -19,7 +31,17 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_dashboardFragment_to_knowledgeScoreFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_dashboardFragment_to_markedQuestionFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_dashboardFragment_to_markedQuestionsFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -158,6 +180,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="markedQuestionsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="652" />
+                            <option name="y" value="-794" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="onboarding3Fragment">
                     <value>
                       <LayoutPositions>
@@ -209,6 +243,15 @@
                             <option name="y" value="-560" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_practiceQuestionsFragment_to_reviewQuestionsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -255,6 +298,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="reviewQuestionsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1650" />
+                            <option name="y" value="-719" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -340,6 +395,15 @@
                             <option name="x" value="1286" />
                             <option name="y" value="-277" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_studyQuestionFragment_to_reviewQuestionsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

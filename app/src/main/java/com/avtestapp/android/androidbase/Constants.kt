@@ -13,6 +13,18 @@ class PrefKeys {
         const val HAS_CLICKED_ON_STUDY_QUESTIONS = "has_clicked_on_study question_before"
         const val HAS_LOGGED_IN_BEFORE = "has_logged_in_before"
         const val LAST_USER_EMAIL = "last_user_email"
+        const val PRACTICE_SHUFFLE_QUESTIONS = "practice_shuffle_questions"
+        const val STUDY_SHUFFLE_QUESTIONS = "study_shuffle_questions"
+        const val SHOW_ONLY_ANSWERS_FOR_STUDY_QUESTIONS = "show_only_answers_for_study_questions"
+        const val CURRENT_QUESTIONS_SESSIONS = "current_questions_sessions"
+        const val CURRENT_STUDY_QUESTIONS_SESSIONS = "current_study_questions_sessions"
+        const val CURRENT_REVIEW_QUESTIONS_SESSIONS = "current_review_questions_sessions"
+        const val CURRENT_QUESTIONS_SESSIONS_DETAILS = "current_questions_sessions_details"
+        const val CURRENT_STUDY_QUESTIONS_SESSIONS_DETAILS = "current_study_questions_sessions_details"
+        const val BOOKMARKED_QUESTIONS = "book_marked_questions"
+        const val QUESTION_TYPE = "question_type"
+        const val STUDY_BOOKMARKED_QUESTIONS = "study_book_marked_questions"
+        const val PRACTICE_QUESTION_ANSWERS = "practice_question_answers"
 
     }
 }

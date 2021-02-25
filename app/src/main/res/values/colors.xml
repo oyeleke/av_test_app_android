@@ -8,4 +8,7 @@
     <color name="bottomNavInactiveStateColorOpacityReduced">#6680BFFE</color>
     <color name="coolGrey">#F7FAFE</color>
     <color name="dividerColor">#EFEFEF</color>
+    <color name="colorRed">@android:color/holo_red_light</color>
+    <color name="lightGreen">#D0F0C0</color>
+    <color name="lighterGreen">#90EE90</color>
 </resources>

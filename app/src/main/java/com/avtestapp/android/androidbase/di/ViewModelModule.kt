@@ -23,10 +23,13 @@ import com.avtestapp.android.androidbase.av_test.auth.reset_password.ResetPasswo
 import com.avtestapp.android.androidbase.av_test.auth.sign_up.SignUpViewModel
 import com.avtestapp.android.androidbase.av_test.auth.verification.VerificationViewModel
 import com.avtestapp.android.androidbase.av_test.core.DashboardViewModel
+import com.avtestapp.android.androidbase.av_test.core.change_password.ChangePasswordViewModel
 import com.avtestapp.android.androidbase.av_test.core.edit_profile.EditProfileViewModel
 import com.avtestapp.android.androidbase.av_test.core.knowledge_score.KnowledgeScoreViewModel
+import com.avtestapp.android.androidbase.av_test.core.marked_question.MarkedQuestionsViewModel
 import com.avtestapp.android.androidbase.av_test.core.questions.QuestionDialogViewModel
 import com.avtestapp.android.androidbase.av_test.core.questions.QuestionViewModel
+import com.avtestapp.android.androidbase.av_test.core.questions.ReviewQuestionsViewModel
 import com.avtestapp.android.androidbase.av_test.core.settings.SettingsViewModel
 import com.avtestapp.android.androidbase.av_test.onboarding.Onboarding3ViewModel
 import com.avtestapp.android.androidbase.av_test.onboarding.upload_image.UploadImageViewModel
@@ -106,6 +109,21 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(KnowledgeScoreViewModel::class)
     abstract fun bindsKnowledgeScoreViewModel(viewModel: KnowledgeScoreViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ReviewQuestionsViewModel::class)
+    abstract fun bindsReviewQuestionsViewModel(viewModel: ReviewQuestionsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MarkedQuestionsViewModel::class)
+    abstract fun bindsMarkedQuestionsViewModel(viewModel: MarkedQuestionsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ChangePasswordViewModel::class)
+    abstract fun bindsChangePasswordViewModel(viewModel: ChangePasswordViewModel): ViewModel
 
 
 

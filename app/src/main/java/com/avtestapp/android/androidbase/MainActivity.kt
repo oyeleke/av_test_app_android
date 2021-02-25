@@ -24,6 +24,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.afollestad.materialdialogs.MaterialDialog
+import com.avtestapp.android.androidbase.av_test.core.marked_question.MarkedQuestionsViewModel
 import com.avtestapp.android.androidbase.av_test.core.questions.QuestionViewModel
 import com.avtestapp.android.androidbase.base.BaseActivity
 import com.avtestapp.android.androidbase.base.BaseBottomSheetDialogFragment
@@ -44,6 +45,8 @@ class MainActivity : BaseActivity(), LoadingCallback, NavigationView.OnNavigatio
     private lateinit var currentFragment: BaseFragment
     private lateinit var currentBottomSheetFragment: BaseBottomSheetDialogFragment
     private lateinit var viewModel: QuestionViewModel
+    private lateinit var markedQuestionsViewModel: MarkedQuestionsViewModel
+
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -55,6 +58,7 @@ class MainActivity : BaseActivity(), LoadingCallback, NavigationView.OnNavigatio
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
         (this.applicationContext as App).component.inject(this)
         viewModel = ViewModelProvider(this, viewModelFactory).get(QuestionViewModel::class.java)
+        markedQuestionsViewModel = ViewModelProvider(this, viewModelFactory).get(MarkedQuestionsViewModel::class.java)
         setContentView(R.layout.activity_main)
         setUpNavigation()
     }
@@ -83,7 +87,9 @@ class MainActivity : BaseActivity(), LoadingCallback, NavigationView.OnNavigatio
                     R.id.dashboardFragment,
                     R.id.onboarding3Fragment,
                     R.id.studyQuestionFragment,
-                    R.id.practiceQuestionsFragment
+                    R.id.practiceQuestionsFragment,
+                    R.id.reviewQuestionsFragment,
+                    R.id.markedQuestionsFragment
                 )) {
                 toolbar.hide()
             } else {

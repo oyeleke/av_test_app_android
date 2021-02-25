@@ -1,1 +1,2 @@
+include ':retrofit-helper-lib'
 include ':app'

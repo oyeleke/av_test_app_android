@@ -110,6 +110,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_knowledgeScoreFragment"
             app:destination="@id/knowledgeScoreFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_markedQuestionsFragment"
+            app:destination="@id/markedQuestionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/onboardingStartFragment"
@@ -154,11 +157,21 @@
     <fragment
         android:id="@+id/practiceQuestionsFragment"
         android:name="com.avtestapp.android.androidbase.av_test.core.questions.PracticeQuestionsFragment"
-        android:label="PracticeQuestionsFragment" />
+        android:label="PracticeQuestionsFragment"
+        tools:layout="@layout/fragment_practice_questions">
+        <action
+            android:id="@+id/action_practiceQuestionsFragment_to_reviewQuestionsFragment"
+            app:destination="@id/reviewQuestionsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/studyQuestionFragment"
         android:name="com.avtestapp.android.androidbase.av_test.core.questions.StudyQuestionFragment"
-        android:label="StudyQuestionFragment" />
+        android:label="StudyQuestionFragment"
+        tools:layout="@layout/fragment_study_question">
+        <action
+            android:id="@+id/action_studyQuestionFragment_to_reviewQuestionsFragment"
+            app:destination="@id/reviewQuestionsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/markedQuestionFragment"
         android:name="com.avtestapp.android.androidbase.av_test.core.questions.MarkedQuestionFragment"
@@ -171,6 +184,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment"
@@ -182,4 +198,19 @@
         android:name="com.avtestapp.android.androidbase.av_test.core.knowledge_score.KnowledgeScoreFragment"
         android:label="knowledge_score_fragment"
         tools:layout="@layout/knowledge_score_fragment" />
+    <fragment
+        android:id="@+id/reviewQuestionsFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.core.questions.ReviewQuestionsFragment"
+        android:label="ReviewQuestionsFragment"
+        tools:layout="@layout/review_questions_fragment"/>
+    <fragment
+        android:id="@+id/markedQuestionsFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.core.marked_question.MarkedQuestionsFragment"
+        android:label="MarkedQuestionsFragment"
+        tools:layout="@layout/marked_questions_fragment"/>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.avtestapp.android.androidbase.av_test.core.change_password.ChangePasswordFragment"
+        android:label="ChangePasswordFragment"
+        tools:layout="@layout/change_password_fragment"/>
 </navigation>

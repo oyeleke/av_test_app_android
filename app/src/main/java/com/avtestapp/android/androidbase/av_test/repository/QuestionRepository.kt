@@ -4,6 +4,7 @@ import com.avtestapp.android.androidbase.av_test.models.response.QuestionRespons
 import com.avtestapp.android.androidbase.networkutils.Result
 
 interface QuestionRepository {
-
     suspend fun getQuestions(bearerAndToken: String, profession: String): Result<QuestionResponse>
+
+    suspend fun searchQuestions(bearerAndToken: String, searchQuestion: String): Result<QuestionResponse>
 }

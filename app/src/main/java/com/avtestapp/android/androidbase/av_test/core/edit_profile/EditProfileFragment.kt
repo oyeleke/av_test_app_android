@@ -86,7 +86,10 @@ class EditProfileFragment : BaseViewModelFragment() {
         }
         binding.emailInputEditText.setText(profile?.email)
         binding.nameInputEditText.setText("${profile?.firstName} ${profile?.lastName}")
+        binding.licenseNumberInputEditText.setText("${profile?.licenseNumber}")
+        binding.nationalityInputEditText.setText("${profile?.nationality}")
         //binding.licenseNumberInputEditText.setText(${profile?.})
+        //koffee@gmail.com
 
         binding.userImageLayout.setOnClickListener {
             imageCropRequestCode = IMAGE_REQUEST_CODE

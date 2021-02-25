@@ -9,5 +9,7 @@ data class ProfileResponse(
     @SerializedName("firstName") val firstName: String,
     @SerializedName("lastName") val lastName: String,
     @SerializedName("__v") val version: Int,
-    @SerializedName("imageUrl") val imageUrl: String
+    @SerializedName("imageUrl") val imageUrl: String,
+    @SerializedName("licenseNumber") val licenseNumber: String,
+    @SerializedName("nationality") val nationality: String
 )
